@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MonkeyForge DEMO-Lite v0.6.3</title>
+<style>
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #0a0a0f; color: #e4e4e7; line-height: 1.5;
+  min-height: 100vh; overflow-x: hidden;
+}
+a { color: #7c3aed; text-decoration: none; }
+a:hover { text-decoration: underline; }
+input, select, button, textarea { font-family: inherit; font-size: inherit; }
+
+/* ===== LAYOUT ===== */
+.app { display: flex; flex-direction: column; min-height: 100vh; }
+
+/* ===== HEADER ===== */
+.header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.75rem 1.5rem; background: #12121a;
+  border-bottom: 1px solid #1e1e2e; position: sticky; top: 0; z-index: 100;
+}
+.header-left { display: flex; align-items: center; gap: 0.75rem; }
+.logo { font-size: 1.1rem; font-weight: 700; color: #e4e4e7; white-space: nowrap; }
+.logo span { color: #7c3aed; }
+.status-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; display: inline-block; margin-right: 4px; }
+.status-text { font-size: 0.75rem; color: #22c55e; white-space: nowrap; }
+.header-right { display: flex; align-items: center; gap: 1rem; position: relative; }
+.bell-btn { background: none; border: none; color: #71717a; font-size: 1.2rem; cursor: pointer; position: relative; padding: 4px; }
+.bell-btn:hover { color: #e4e4e7; }
+.badge { position: absolute; top: -4px; right: -6px; background: #ef4444; color: #fff; font-size: 0.6rem; font-weight: 700; border-radius: 50%; min-width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; padding: 0 4px; }
+.user-menu { position: relative; }
+.avatar { width: 32px; height: 32px; border-radius: 50%; background: #7c3aed; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 600; cursor: pointer; color: #fff; }
+.dropdown { display: none; position: absolute; top: 40px; right: 0; background: #1a1a2e; border: 1px solid #2a2a3e; border-radius: 8px; min-width: 160px; box-shadow: 0 8px 24px rgba(0,0,0,0.4); z-index: 200; overflow: hidden; }
+.dropdown.show { display: block; }
+.dropdown-item { padding: 0.6rem 1rem; cursor: pointer; font-size: 0.85rem; color: #e4e4e7; display: block; border: none; background: none; width: 100%; text-align: left; }
+.dropdown-item:hover { background: #7c3aed; color: #fff; }
+
+/* ===== TABS ===== */
+.tabs { display: flex; background: #12121a; border-bottom: 1px solid #1e1e2e; padding: 0 1rem; overflow-x: auto; }
+.tab-btn { padding: 0.75rem 1.25rem; background: none; border: none; color: #71717a; cursor: pointer; font-size: 0.85rem; font-weight: 500; white-space: nowrap; border-bottom: 2px solid transparent; transition: all 0.2s; }
+.tab-btn:hover { color: #e4e4e7; }
+.tab-btn.active { color: #7c3aed; border-bottom-color: #7c3aed; }
+
+/* ===== MAIN CONTENT ===== */
+.content { flex: 1; padding: 1.5rem; max-width: 1200px; margin: 0 auto; width: 100%; }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ===== CARDS ===== */
+.card { background: #12121a; border: 1px solid #1e1e2e; border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem; transition: border-color 0.2s; }
+.card:hover { border-color: #2a2a4a; }
+.card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; }
+.card-title { font-weight: 600; font-size: 1rem; }
+
+/* ===== FORM ELEMENTS ===== */
+.form-group { margin-bottom: 1rem; }
+.form-group label { display: block; font-size: 0.8rem; color: #71717a; margin-bottom: 0.35rem; font-weight: 500; }
+input[type="text"], input[type="password"], input[type="email"],
+input[type="number"], input[type="search"], textarea, select {
+  width: 100%; padding: 0.6rem 0.75rem; background: #0a0a0f; border: 1px solid #2a2a3e;
+  border-radius: 8px; color: #e4e4e7; outline: none; transition: border-color 0.2s;
+}
+input:focus, textarea:focus, select:focus { border-color: #7c3aed; }
+textarea { resize: vertical; min-height: 60px; }
+
+/* ===== BUTTONS ===== */
+.btn { padding: 0.6rem 1.25rem; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.5rem; }
+.btn-primary { background: #7c3aed; color: #fff; }
+.btn-primary:hover { background: #6d28d9; }
+.btn-secondary { background: #1e1e2e; color: #e4e4e7; border: 1px solid #2a2a3e; }
+.btn-secondary:hover { background: #2a2a3e; }
+.btn-danger { background: #dc2626; color: #fff; }
+.btn-danger:hover { background: #b91c1c; }
+.btn-sm { padding: 0.35rem 0.75rem; font-size: 0.78rem; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ===== CHECKBOX ===== */
+.checkbox-group { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
+.checkbox-group input[type="checkbox"] { width: 16px; height: 16px; accent-color: #7c3aed; }
+
+/* ===== SLIDER ===== */
+input[type="range"] { width: 100%; accent-color: #7c3aed; height: 6px; -webkit-appearance: none; background: #1e1e2e; border-radius: 3px; outline: none; border: none; padding: 0; }
+input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%; background: #7c3aed; cursor: pointer; }
+
+/* ===== BADGES ===== */
+.badge-pill { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 9999px; font-size: 0.7rem; font-weight: 600; }
+.badge-green { background: #14532d; color: #4ade80; }
+.badge-yellow { background: #422006; color: #fbbf24; }
+.badge-blue { background: #172554; color: #60a5fa; }
+.badge-purple { background: #2e1065; color: #a78bfa; }
+.badge-red { background: #450a0a; color: #f87171; }
+.badge-gray { background: #1e1e2e; color: #71717a; }
+.badge-orange { background: #431407; color: #fb923c; }
+
+/* ===== COORDINATE BARS ===== */
+.coord-bars { display: flex; gap: 3px; align-items: flex-end; height: 40px; margin-top: 0.5rem; }
+.coord-bar { flex: 1; border-radius: 2px 2px 0 0; min-height: 4px; transition: height 0.3s; }
+
+/* ===== GRID ===== */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+
+/* ===== AUTH ===== */
+.auth-container { max-width: 400px; margin: 3rem auto; padding: 2rem; background: #12121a; border: 1px solid #1e1e2e; border-radius: 16px; }
+.auth-title { font-size: 1.5rem; font-weight: 700; text-align: center; margin-bottom: 1.5rem; }
+.auth-title span { color: #7c3aed; }
+
+/* ===== TOAST ===== */
+.toast-container { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 9999; display: flex; flex-direction: column; gap: 0.5rem; }
+.toast { padding: 0.75rem 1.25rem; border-radius: 8px; font-size: 0.85rem; color: #fff; animation: slideIn 0.3s ease; min-width: 250px; max-width: 400px; box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
+.toast-error { background: #dc2626; }
+.toast-success { background: #16a34a; }
+.toast-info { background: #7c3aed; }
+@keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+
+/* ===== SPINNER ===== */
+.spinner { width: 20px; height: 20px; border: 2px solid #2a2a3e; border-top-color: #7c3aed; border-radius: 50%; animation: spin 0.6s linear infinite; display: inline-block; }
+.spinner-lg { width: 32px; height: 32px; border-width: 3px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-overlay { display: flex; align-items: center; justify-content: center; padding: 2rem; gap: 0.75rem; color: #71717a; font-size: 0.9rem; }
+
+/* ===== CONFIRM DIALOG ===== */
+.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 500; align-items: center; justify-content: center; }
+.modal-overlay.show { display: flex; }
+.modal { background: #12121a; border: 1px solid #2a2a3e; border-radius: 16px; padding: 1.5rem; max-width: 400px; width: 90%; text-align: center; }
+.modal h3 { margin-bottom: 0.75rem; }
+.modal p { color: #71717a; font-size: 0.9rem; margin-bottom: 1.25rem; }
+.modal-actions { display: flex; gap: 0.75rem; justify-content: center; }
+
+/* ===== METRICS ===== */
+.metrics { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
+.metric { font-size: 0.72rem; color: #71717a; }
+.metric strong { color: #e4e4e7; }
+
+/* ===== EMPTY STATE ===== */
+.empty-state { text-align: center; padding: 3rem 1rem; color: #71717a; }
+.empty-state .icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+
+/* ===== SCROLLABLE LIST ===== */
+.scroll-list { max-height: 60vh; overflow-y: auto; padding-right: 0.25rem; }
+.scroll-list::-webkit-scrollbar { width: 6px; }
+.scroll-list::-webkit-scrollbar-track { background: transparent; }
+.scroll-list::-webkit-scrollbar-thumb { background: #2a2a3e; border-radius: 3px; }
+
+/* ===== EXPAND SECTION ===== */
+.expand-content { display: none; padding-top: 0.75rem; border-top: 1px solid #1e1e2e; margin-top: 0.75rem; }
+.expand-content.open { display: block; }
+
+/* ===== SVG VIZ ===== */
+.viz-container { background: #0a0a0f; border-radius: 8px; padding: 1rem; margin-top: 1rem; text-align: center; }
+
+/* ===== FEATURED BANNER ===== */
+.featured { background: linear-gradient(135deg, #2e1065, #1e1e2e); border: 1px solid #7c3aed; border-radius: 12px; padding: 1.25rem; margin-bottom: 1.5rem; }
+.featured h3 { color: #a78bfa; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+
+/* ===== NOTIFICATIONS ===== */
+.notif-item { cursor: pointer; transition: background 0.15s; padding: 0.75rem; border-radius: 6px; }
+.notif-item:hover { background: #1a1a2e; }
+.notif-dot { width: 8px; height: 8px; border-radius: 50%; background: #7c3aed; flex-shrink: 0; margin-top: 6px; }
+
+/* ===== PROFILE STATS ===== */
+.stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin: 1rem 0; }
+.stat-card { background: #0a0a0f; border-radius: 8px; padding: 1rem; text-align: center; }
+.stat-card .num { font-size: 1.5rem; font-weight: 700; color: #7c3aed; }
+.stat-card .label { font-size: 0.75rem; color: #71717a; margin-top: 0.25rem; }
+
+/* ===== KEY DISPLAY ===== */
+.key-display { background: #0a0a0f; border: 1px solid #2a2a3e; border-radius: 8px; padding: 0.75rem; font-family: monospace; font-size: 0.8rem; word-break: break-all; color: #a78bfa; }
+
+/* ===== FILTER ROW ===== */
+.filter-row { display: flex; gap: 0.75rem; margin-bottom: 1rem; flex-wrap: wrap; }
+.filter-row input, .filter-row select { flex: 1; min-width: 150px; }
+
+/* ===== AXIOM CARD v0.6.2 ENHANCED ===== */
+.axiom-card { cursor: pointer; }
+.axiom-card:hover { border-color: #7c3aed; }
+
+/* ===== PENTAGON SVG ===== */
+.pentagon-wrap { width: 80px; height: 80px; flex-shrink: 0; }
+
+/* ===== METRIC BAR (reference image style) ===== */
+.metric-bar-row { display: flex; align-items: center; gap: 0.5rem; margin: 0.2rem 0; font-size: 0.75rem; }
+.metric-bar-label { width: 75px; text-align: right; color: #71717a; font-size: 0.72rem; }
+.metric-bar-track { flex: 1; height: 8px; background: #1e1e2e; border-radius: 4px; overflow: hidden; }
+.metric-bar-fill { height: 100%; border-radius: 4px; transition: width 0.4s ease; }
+.metric-bar-val { width: 40px; color: #a78bfa; font-weight: 600; font-size: 0.72rem; }
+
+/* ===== TAG CHIPS ===== */
+.tag-row { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.6rem; }
+.tag-chip { padding: 0.1rem 0.45rem; border-radius: 4px; font-size: 0.65rem; font-weight: 600; background: #1e1e2e; color: #a78bfa; border: 1px solid #2a2a3e; }
+.tag-chip.hybrid { background: #2e1065; color: #c4b5fd; border-color: #7c3aed; }
+.tag-chip.sophia { background: #14532d; color: #4ade80; border-color: #22c55e; }
+
+/* ===== EQUATION FOOTER ===== */
+.eq-footer { margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid #1e1e2e; font-size: 0.78rem; color: #71717a; font-family: monospace; }
+
+/* ===== v0.6.2 ADDITIONS ===== */
+.pagination { display: flex; gap: 0.5rem; align-items: center; justify-content: center; margin-top: 1rem; }
+.page-btn { padding: 0.35rem 0.75rem; background: #1e1e2e; border: 1px solid #2a2a3e; border-radius: 6px; color: #e4e4e7; cursor: pointer; font-size: 0.8rem; }
+.page-btn:hover { background: #7c3aed; }
+.page-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.page-info { font-size: 0.8rem; color: #71717a; }
+
+.upload-zone { border: 2px dashed #2a2a3e; border-radius: 12px; padding: 2rem; text-align: center; cursor: pointer; transition: border-color 0.2s; }
+.upload-zone:hover { border-color: #7c3aed; }
+.upload-zone.dragover { border-color: #7c3aed; background: rgba(124,58,237,0.05); }
+
+.audit-entry { display: flex; gap: 1rem; padding: 0.5rem 0; border-bottom: 1px solid #1e1e2e; font-size: 0.85rem; }
+.audit-time { color: #71717a; white-space: nowrap; font-size: 0.78rem; min-width: 130px; }
+.audit-action { font-weight: 500; min-width: 80px; }
+.audit-action.generate { color: #a78bfa; }
+.audit-action.share { color: #4ade80; }
+.audit-action.login { color: #60a5fa; }
+.audit-action.delete { color: #f87171; }
+.audit-action.register { color: #fbbf24; }
+
+.file-card { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid #1e1e2e; }
+.file-info { flex: 1; }
+.file-name { font-weight: 500; font-size: 0.9rem; }
+.file-meta { font-size: 0.78rem; color: #71717a; margin-top: 2px; }
+
+.like-btn { background: none; border: 1px solid #2a2a3e; border-radius: 6px; padding: 0.25rem 0.6rem; cursor: pointer; color: #71717a; font-size: 0.8rem; transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.3rem; }
+.like-btn:hover { border-color: #ef4444; color: #ef4444; }
+.like-btn.liked { border-color: #ef4444; color: #ef4444; background: rgba(239,68,68,0.1); }
+
+.export-btn { background: none; border: 1px solid #2a2a3e; border-radius: 6px; padding: 0.3rem 0.7rem; cursor: pointer; color: #71717a; font-size: 0.78rem; transition: all 0.2s; }
+.export-btn:hover { border-color: #7c3aed; color: #7c3aed; }
+
+/* ===== FILE PREVIEW WIDGET ===== */
+.preview-widget { background: #0a0a0f; border: 1px solid #1e1e2e; border-radius: 10px; margin-top: 0.75rem; overflow: hidden; }
+.preview-header { display: flex; justify-content: space-between; align-items: center; padding: 0.6rem 1rem; background: #12121a; border-bottom: 1px solid #1e1e2e; font-size: 0.8rem; }
+.preview-body { padding: 1rem; max-height: 400px; overflow-y: auto; font-size: 0.85rem; line-height: 1.7; color: #c4c4c7; }
+.preview-body h1, .preview-body h2, .preview-body h3 { color: #e4e4e7; margin: 0.75rem 0 0.3rem; }
+.preview-body h1 { font-size: 1.3rem; }
+.preview-body h2 { font-size: 1.1rem; }
+.preview-body h3 { font-size: 1rem; }
+.preview-body code { background: #1e1e2e; padding: 0.1rem 0.3rem; border-radius: 3px; font-size: 0.82rem; color: #a78bfa; }
+.preview-body pre { background: #0a0a0f; border: 1px solid #1e1e2e; border-radius: 6px; padding: 0.75rem; overflow-x: auto; margin: 0.5rem 0; }
+.preview-body pre code { background: none; padding: 0; }
+.preview-body blockquote { border-left: 3px solid #7c3aed; padding-left: 0.75rem; color: #71717a; margin: 0.5rem 0; }
+.preview-body ul, .preview-body ol { padding-left: 1.5rem; margin: 0.3rem 0; }
+.preview-body hr { border: none; border-top: 1px solid #1e1e2e; margin: 0.75rem 0; }
+
+/* ===== VISIBILITY SELECTOR ===== */
+.vis-selector { display: flex; gap: 0; border-radius: 6px; overflow: hidden; border: 1px solid #2a2a3e; }
+.vis-opt { padding: 0.3rem 0.6rem; font-size: 0.72rem; cursor: pointer; border: none; background: #1e1e2e; color: #71717a; transition: all 0.2s; }
+.vis-opt.active-public { background: #14532d; color: #4ade80; }
+.vis-opt.active-private { background: #1e1e2e; color: #71717a; }
+.vis-opt.active-link { background: #172554; color: #60a5fa; }
+
+/* ===== SIM SIDE-BY-SIDE ===== */
+.sim-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .header { padding: 0.5rem 1rem; }
+  .content { padding: 1rem; }
+  .grid-2, .grid-3, .sim-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .tab-btn { padding: 0.6rem 0.75rem; font-size: 0.8rem; }
+  .metrics { flex-direction: column; }
+}
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: 1fr; }
+  .status-text { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="app" id="app">
+  <!-- ===== AUTH SCREEN ===== -->
+  <div id="authScreen" class="auth-container">
+    <div class="auth-title"><span>MonkeyForge</span> v0.6.3</div>
+    <form id="loginForm" class="form-group">
+      <label>Username</label>
+      <input type="text" id="loginUser" placeholder="Enter username" required>
+      <label style="margin-top:0.75rem">Password</label>
+      <input type="password" id="loginPass" placeholder="Enter password" required>
+      <button type="submit" class="btn btn-primary" style="width:100%;margin-top:1rem;justify-content:center;">Sign In</button>
+      <p style="text-align:center;margin-top:1rem;font-size:0.85rem;color:#71717a;">No account? <a href="#" id="showRegister">Create Account</a></p>
+    </form>
+    <form id="registerForm" class="form-group" style="display:none;">
+      <label>Username</label>
+      <input type="text" id="regUser" placeholder="Choose username" required>
+      <label style="margin-top:0.75rem">Email</label>
+      <input type="email" id="regEmail" placeholder="you@example.com" required>
+      <label style="margin-top:0.75rem">Password</label>
+      <input type="password" id="regPass" placeholder="Choose password" required>
+      <button type="submit" class="btn btn-primary" style="width:100%;margin-top:1rem;justify-content:center;">Register</button>
+      <p style="text-align:center;margin-top:1rem;font-size:0.85rem;color:#71717a;">Already have an account? <a href="#" id="showLogin">Sign In</a></p>
+    </form>
+  </div>
+
+  <!-- ===== MAIN DASHBOARD ===== -->
+  <div id="dashboard" style="display:none;">
+    <header class="header">
+      <div class="header-left">
+        <div class="logo"><span>MonkeyForge</span> v0.6.3</div>
+        <div><span class="status-dot"></span><span class="status-text">Connected</span></div>
+      </div>
+      <div class="header-right">
+        <button class="bell-btn" id="bellBtn" title="Notifications">&#x1F514;<span class="badge" id="notifBadge" style="display:none;">0</span></button>
+        <div class="user-menu">
+          <div class="avatar" id="avatarBtn">U</div>
+          <div class="dropdown" id="userDropdown">
+            <button class="dropdown-item" onclick="switchTab('profile')">Profile</button>
+            <button class="dropdown-item" onclick="signOut()">Sign Out</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab-btn active" data-tab="forge">Forge</button>
+      <button class="tab-btn" data-tab="explore">Explore</button>
+      <button class="tab-btn" data-tab="simulate">Simulate</button>
+      <button class="tab-btn" data-tab="ledger">Ledger</button>
+      <button class="tab-btn" data-tab="axioms">Axioms</button>
+      <button class="tab-btn" data-tab="files">Files</button>
+      <button class="tab-btn" data-tab="profile">Profile</button>
+      <button class="tab-btn" data-tab="audit">Audit</button>
+      <button class="tab-btn admin-only" data-tab="admin" style="display:none;">&#x1F451; Admin</button>
+    </nav>
+
+    <main class="content">
+
+      <!-- ===== FORGE TAB ===== -->
+      <div class="tab-panel active" id="panel-forge">
+        <div class="card" style="max-width:650px;margin:0 auto 1.5rem;">
+          <div class="card-header"><span class="card-title">Forge</span></div>
+          <p style="font-size:0.82rem;color:#71717a;margin-bottom:1rem;">Generate scored meta-axioms. Give a text seed to steer the 5D coordinates, or pick a preset.</p>
+          <div class="form-group">
+            <label>Seed Text</label>
+            <div style="display:flex;gap:0.5rem;margin-bottom:0.4rem;">
+              <select id="seedPreset" style="flex:0 0 auto;width:200px;font-size:0.8rem;">
+                <option value="">-- Choose a preset --</option>
+              </select>
+              <button class="btn btn-sm btn-secondary" id="clearSeedBtn" type="button">Clear</button>
+            </div>
+            <textarea id="forgeSeed" rows="3" placeholder="Enter a seed thought, question, or concept..."></textarea>
+          </div>
+          <div class="grid-2">
+            <div class="form-group"><label>Count: <span id="forgeCountVal">1</span></label><input type="range" id="forgeCount" min="1" max="24" value="1"></div>
+            <div style="display:flex;flex-direction:column;gap:0.35rem;padding-top:1.4rem;">
+              <div class="checkbox-group"><input type="checkbox" id="forgePhase"><label for="forgePhase">Force Phase Transition</label></div>
+              <div class="checkbox-group"><input type="checkbox" id="forgeRelativity" checked><label for="forgeRelativity">Use Relativity</label></div>
+            </div>
+          </div>
+          <button class="btn btn-primary" id="forgeBtn" style="width:100%;justify-content:center;padding:0.75rem;font-size:1rem;">Generate</button>
+        </div>
+        <div id="forgeBatchBar" style="display:none;margin-bottom:1rem;">
+          <div class="card" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;">
+            <span style="font-size:0.85rem;color:#71717a;" id="batchInfo"></span>
+            <button class="btn btn-sm btn-secondary" id="exportAllBtn">&#x1F4E4; Export All (Batch JSON)</button>
+          </div>
+        </div>
+        <div id="forgeResults"></div>
+      </div>
+
+      <!-- ===== EXPLORE TAB ===== -->
+      <div class="tab-panel" id="panel-explore">
+        <div class="filter-row">
+          <input type="search" id="exploreSearch" placeholder="Search equations...">
+          <select id="exploreCluster"><option value="">All Clusters</option></select>
+        </div>
+        <div id="exploreResults" class="scroll-list"></div>
+      </div>
+
+      <!-- ===== SIMULATE TAB (SIDE-BY-SIDE) ===== -->
+      <div class="tab-panel" id="panel-simulate">
+        <div class="sim-grid">
+          <div class="card">
+            <h3 style="margin-bottom:1rem;font-size:0.95rem;">Curvature Simulation</h3>
+            <div class="form-group"><label>Depth (T1)</label><input type="number" id="simT1" min="0" max="1" step="0.01" value="0.5"></div>
+            <div class="form-group"><label>Breadth (T2)</label><input type="number" id="simT2" min="0" max="1" step="0.01" value="0.5"></div>
+            <div class="form-group"><label>Abstraction (T3)</label><input type="number" id="simT3" min="0" max="1" step="0.01" value="0.5"></div>
+            <div class="form-group"><label>Novelty (T4)</label><input type="number" id="simT4" min="0" max="1" step="0.01" value="0.5"></div>
+            <div class="form-group"><label>Coherence (T5)</label><input type="number" id="simT5" min="0" max="1" step="0.01" value="0.5"></div>
+            <button class="btn btn-primary" id="simBtn">Simulate</button>
+            <div id="simResults" style="margin-top:1rem;"></div>
+          </div>
+          <div class="card">
+            <h3 style="margin-bottom:1rem;font-size:0.95rem;">Geodesic Path</h3>
+            <div class="form-group"><label>Start (comma-sep)</label><input type="text" id="geoStart" placeholder="0.1,0.2,0.3,0.4,0.5"></div>
+            <div class="form-group"><label>End (comma-sep)</label><input type="text" id="geoEnd" placeholder="0.9,0.8,0.7,0.6,0.5"></div>
+            <div class="form-group"><label>Steps: <span id="geoStepsVal">10</span></label><input type="range" id="geoSteps" min="2" max="50" value="10"></div>
+            <button class="btn btn-secondary" id="geoBtn">Compute Path</button>
+            <div id="geoResults" style="margin-top:1rem;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== LEDGER TAB ===== -->
+      <div class="tab-panel" id="panel-ledger">
+        <div class="filter-row">
+          <input type="search" id="ledgerSearch" placeholder="Search shared axioms...">
+          <select id="ledgerSort"><option value="date">Sort: Date</option><option value="popularity">Sort: Popularity</option><option value="verified">Sort: Verified</option></select>
+          <select id="ledgerCategory"><option value="">All Categories</option><option value="ontology">Ontology</option><option value="epistemology">Epistemology</option><option value="ethics">Ethics</option><option value="logic">Logic</option><option value="metaphysics">Metaphysics</option></select>
+        </div>
+        <div class="card" style="display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-weight:600;">Shared Axioms</span>
+          <button class="btn btn-sm btn-secondary" id="verifyChainBtn">Verify Chain</button>
+        </div>
+        <div id="verifyResult" style="display:none;" class="card" style="margin-top:0.5rem;"></div>
+        <div id="ledgerFeatured" style="margin-top:1rem;"></div>
+        <div id="ledgerFeed" class="scroll-list" style="margin-top:1rem;"></div>
+      </div>
+
+      <!-- ===== AXIOMS TAB ===== -->
+      <div class="tab-panel" id="panel-axioms">
+        <div class="filter-row">
+          <select id="axiomFilter"><option value="">All Status</option><option value="draft">Draft</option><option value="published">Published</option><option value="archived">Archived</option></select>
+        </div>
+        <div id="axiomsList"></div>
+      </div>
+
+      <!-- ===== FILES TAB ===== -->
+      <div class="tab-panel" id="panel-files">
+        <div class="card" style="max-width:650px;margin:0 auto 1.5rem;">
+          <div class="card-header"><span class="card-title">Upload File</span></div>
+          <div class="upload-zone" id="uploadZone">
+            <p style="color:#71717a;margin-bottom:0.5rem;">Drop .md, .pdf, or any file here</p>
+            <p style="font-size:0.78rem;color:#3f3f46;">Max 10 MB &middot; SHA-256 integrity verified</p>
+            <input type="file" id="fileInput" accept=".md,.pdf,.txt,.json,.csv,.yaml,.yml" style="display:none;">
+          </div>
+          <div class="form-group" style="margin-top:0.75rem;">
+            <label>Description (optional)</label>
+            <input type="text" id="fileDesc" placeholder="File description...">
+          </div>
+          <div class="form-group">
+            <label>Visibility</label>
+            <div class="vis-selector">
+              <button class="vis-opt active-private" data-vis="private" onclick="setUploadVis('private',this)">Private</button>
+              <button class="vis-opt" data-vis="public" onclick="setUploadVis('public',this)">Public</button>
+              <button class="vis-opt" data-vis="link_only" onclick="setUploadVis('link_only',this)">Link Only</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Link to Ledger Entry (optional)</label>
+            <input type="text" id="fileLedgerLink" placeholder="Paste ledger hash...">
+          </div>
+        </div>
+        <div id="filesList"></div>
+        <div id="filePreviewPanel" style="display:none;margin-top:1rem;"></div>
+      </div>
+
+      <!-- ===== PROFILE TAB ===== -->
+      <div class="tab-panel" id="panel-profile">
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-header"><span class="card-title">Profile</span></div>
+            <div id="profileDisplay">
+              <p><strong>Username:</strong> <span id="pUser">&#x2014;</span></p>
+              <p><strong>Display Name:</strong> <span id="pName">&#x2014;</span></p>
+              <p><strong>Role:</strong> <span id="pRole" class="badge-pill badge-purple">user</span></p>
+              <p><strong>Email:</strong> <span id="pEmail">&#x2014;</span></p>
+              <p><strong>Bio:</strong> <span id="pBio">&#x2014;</span></p>
+              <p><strong>Organization:</strong> <span id="pOrg">&#x2014;</span></p>
+            </div>
+            <div class="stats-grid" id="profileStats">
+              <div class="stat-card"><div class="num" id="statGen">0</div><div class="label">Generated</div></div>
+              <div class="stat-card"><div class="num" id="statShared">0</div><div class="label">Shared</div></div>
+              <div class="stat-card"><div class="num" id="statRep">0</div><div class="label">Reputation</div></div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header"><span class="card-title">Edit Profile</span></div>
+            <div class="form-group"><label>Display Name</label><input type="text" id="editName" placeholder="Display name"></div>
+            <div class="form-group"><label>Email</label><input type="email" id="editEmail" placeholder="Email"></div>
+            <div class="form-group"><label>Bio</label><textarea id="editBio" rows="3" placeholder="Tell us about yourself..."></textarea></div>
+            <div class="form-group"><label>Organization</label><input type="text" id="editOrg" placeholder="Organization"></div>
+            <button class="btn btn-primary" id="updateProfileBtn">Update Profile</button>
+          </div>
+        </div>
+        <div class="card" style="margin-top:1rem;">
+          <div class="card-header"><span class="card-title">API Key</span></div>
+          <div id="keyDisplay" class="key-display" style="margin-bottom:1rem;">&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;</div>
+          <button class="btn btn-danger btn-sm" id="rotateKeyBtn">Rotate API Key</button>
+        </div>
+        <div class="card" style="margin-top:1rem;">
+          <div class="card-header"><span class="card-title">Notifications</span><span class="badge-pill badge-purple" id="notifCount">0</span></div>
+          <div id="notifList"><div class="empty-state"><p>No notifications</p></div></div>
+        </div>
+      </div>
+
+      <!-- ===== AUDIT TAB ===== -->
+      <div class="tab-panel" id="panel-audit">
+        <div class="card" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+          <span class="card-title">Audit Log</span>
+          <div style="display:flex;gap:0.5rem;">
+            <select id="auditFilter" style="width:auto;min-width:120px;">
+              <option value="">All Actions</option>
+              <option value="generate">Generate</option><option value="share">Share</option><option value="login">Login</option><option value="register">Register</option><option value="update">Update</option><option value="delete">Delete</option><option value="upload">Upload</option><option value="analyze">Analyze</option><option value="rotate_key">Rotate Key</option><option value="export_batch">Export Batch</option><option value="link_file">Link File</option>
+            </select>
+            <button class="btn btn-sm btn-secondary" id="auditRefreshBtn">Refresh</button>
+          </div>
+        </div>
+        <div id="auditStats" class="card" style="margin-bottom:1rem;"></div>
+        <div id="auditList" class="scroll-list" style="max-height:70vh;"></div>
+        <div class="card admin-only" style="display:none;margin-top:1rem;">
+          <div class="card-header"><span class="card-title">Full System Audit (admin)</span></div>
+          <p style="font-size:0.82rem;color:#71717a;margin-bottom:0.75rem;">As an admin you also have access to <code>/api/audit/full</code>, which is not scoped to your own user.</p>
+          <button class="btn btn-sm btn-secondary" id="loadFullAuditBtn">Load Full Audit</button>
+          <div id="fullAuditList" class="scroll-list" style="max-height:40vh;margin-top:0.75rem;"></div>
+        </div>
+      </div>
+
+      <!-- ===== ADMIN TAB ===== -->
+      <div class="tab-panel" id="panel-admin">
+        <div class="card" style="margin-bottom:1rem;">
+          <div class="card-header"><span class="card-title">&#x1F451; Users &amp; Permissions</span></div>
+          <p style="font-size:0.82rem;color:#71717a;margin-bottom:0.75rem;">Role-based access control. Admins implicitly satisfy every role check and receive the <code>*</code> wildcard permission. Moderators extend user permissions with <code>ledger:moderate</code>, <code>axioms:moderate</code>, and <code>audit:view</code>.</p>
+          <button class="btn btn-sm btn-secondary" id="refreshUsersBtn">Refresh</button>
+        </div>
+        <div id="usersList" class="scroll-list" style="max-height:70vh;"></div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<div class="toast-container" id="toasts"></div>
+<div class="modal-overlay" id="confirmModal">
+  <div class="modal">
+    <h3 id="confirmTitle">Confirm</h3>
+    <p id="confirmMsg">Are you sure?</p>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" id="confirmCancel">Cancel</button>
+      <button class="btn btn-danger" id="confirmOk">Confirm</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ===================================================================
+   MonkeyForge DEMO-Lite v0.6.2 -- Dashboard Script
+   =================================================================== */
+const API = '/api';
+let sessionToken = localStorage.getItem('mf_session') || null;
+let apiKey = localStorage.getItem('mf_api_key') || null;
+let currentUser = JSON.parse(localStorage.getItem('mf_user') || 'null');
+let uploadVisibility = 'private';
+
+function checkAuth() {
+  if (sessionToken && currentUser) { showDashboard(); } else {
+    document.getElementById('authScreen').style.display = 'block';
+    document.getElementById('dashboard').style.display = 'none';
+  }
+}
+
+async function api(path, opts = {}) {
+  const headers = { 'Content-Type': 'application/json', ...(opts.headers || {}) };
+  if (sessionToken) headers['X-Session-Token'] = sessionToken;
+  try {
+    const res = await fetch(`${API}${path}`, { ...opts, headers });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.detail || data.message || 'Request failed');
+    return data;
+  } catch (e) { if (e.message === 'Failed to fetch') throw new Error('Cannot connect to server'); throw e; }
+}
+
+function toast(msg, type = 'info') {
+  const el = document.createElement('div');
+  el.className = `toast toast-${type}`;
+  el.textContent = msg;
+  document.getElementById('toasts').appendChild(el);
+  setTimeout(() => { el.style.opacity = '0'; setTimeout(() => el.remove(), 300); }, 5000);
+}
+
+function confirm(title, msg) {
+  return new Promise((resolve) => {
+    const modal = document.getElementById('confirmModal');
+    document.getElementById('confirmTitle').textContent = title;
+    document.getElementById('confirmMsg').textContent = msg;
+    modal.classList.add('show');
+    const cleanup = (val) => { modal.classList.remove('show'); resolve(val); };
+    document.getElementById('confirmOk').onclick = () => cleanup(true);
+    document.getElementById('confirmCancel').onclick = () => cleanup(false);
+  });
+}
+
+function showDashboard() {
+  document.getElementById('authScreen').style.display = 'none';
+  document.getElementById('dashboard').style.display = 'flex';
+  document.getElementById('dashboard').style.flexDirection = 'column';
+  document.getElementById('avatarBtn').textContent = (currentUser.username || 'U')[0].toUpperCase();
+  renderRoleUI();
+  loadNotifications();
+  loadSeedPresets();
+}
+
+/* ===================================================================
+   RBAC — role-aware UI
+   =================================================================== */
+function isAdmin() {
+  return (currentUser && currentUser.role === 'admin') ||
+         (currentUser && Array.isArray(currentUser.permissions) &&
+          currentUser.permissions.includes('*'));
+}
+
+function renderRoleUI() {
+  const admin = isAdmin();
+  document.querySelectorAll('.admin-only').forEach(el => {
+    el.style.display = admin ? '' : 'none';
+  });
+  // Show admin tab button explicitly (it starts hidden)
+  const adminTabBtn = document.querySelector('.tab-btn[data-tab="admin"]');
+  if (adminTabBtn) adminTabBtn.style.display = admin ? '' : 'none';
+}
+
+async function loadUsers() {
+  if (!isAdmin()) { toast('Admins only', 'error'); return; }
+  try {
+    const data = await api('/users');
+    const users = data.users || [];
+    const list = document.getElementById('usersList');
+    if (!users.length) {
+      list.innerHTML = '<div class="empty-state"><p>No users registered.</p></div>';
+      return;
+    }
+    list.innerHTML = users.map(u => `
+      <div class="card" style="margin-bottom:0.5rem;padding:0.75rem;">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;">
+          <div>
+            <strong>${escapeHtml(u.username)}</strong>
+            ${u.role === 'admin' ? '<span class="badge-pill badge-purple" style="margin-left:0.5rem;">admin</span>' : u.role === 'moderator' ? '<span class="badge-pill" style="margin-left:0.5rem;background:#3b82f6;color:#fff;">moderator</span>' : '<span class="badge-pill" style="margin-left:0.5rem;background:#52525b;color:#fff;">user</span>'}
+            <div style="font-size:0.78rem;color:#71717a;margin-top:0.2rem;">
+              ${u.email ? escapeHtml(u.email) + ' &middot; ' : ''}axioms: ${u.total_axioms_generated ?? 0} &middot; shared: ${u.total_axioms_shared ?? 0} &middot; rep: ${u.reputation_score ?? 0}
+            </div>
+          </div>
+          <div style="display:flex;gap:0.5rem;align-items:center;">
+            <select id="role-${escapeHtml(u.username)}" style="width:auto;min-width:120px;">
+              <option value="user" ${u.role === 'user' ? 'selected' : ''}>user</option>
+              <option value="moderator" ${u.role === 'moderator' ? 'selected' : ''}>moderator</option>
+              <option value="admin" ${u.role === 'admin' ? 'selected' : ''}>admin</option>
+            </select>
+            <button class="btn btn-sm btn-primary" onclick="saveUserRole('${escapeHtml(u.username)}')">Save</button>
+          </div>
+        </div>
+        <details style="margin-top:0.5rem;font-size:0.78rem;color:#a1a1aa;">
+          <summary>permissions (${u.permissions.length})</summary>
+          <code style="word-break:break-all;">${u.permissions.map(escapeHtml).join(', ')}</code>
+        </details>
+      </div>
+    `).join('');
+  } catch (err) { toast(err.message, 'error'); }
+}
+
+async function saveUserRole(username) {
+  const sel = document.getElementById('role-' + username);
+  if (!sel) return;
+  const newRole = sel.value;
+  if (!await confirm('Change role', `Set ${username} to role = ${newRole}?`)) return;
+  try {
+    await api(`/user/${encodeURIComponent(username)}/role`, {
+      method: 'PUT',
+      body: JSON.stringify({ role: newRole })
+    });
+    toast(`${username} is now ${newRole}`, 'success');
+    loadUsers();
+  } catch (err) { toast(err.message, 'error'); }
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c =>
+    ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+async function loadFullAudit() {
+  if (!isAdmin()) { toast('Admins only', 'error'); return; }
+  try {
+    const data = await api('/audit/full?limit=50');
+    const list = document.getElementById('fullAuditList');
+    const entries = data.entries || [];
+    if (!entries.length) {
+      list.innerHTML = '<div class="empty-state"><p>No audit entries.</p></div>';
+      return;
+    }
+    list.innerHTML = entries.map(e => `
+      <div class="card" style="margin-bottom:0.4rem;padding:0.6rem;font-size:0.8rem;">
+        <div style="display:flex;justify-content:space-between;gap:0.5rem;">
+          <strong>${escapeHtml(e.action)}</strong>
+          <span style="color:#71717a;">${escapeHtml(e.timestamp || '')}</span>
+        </div>
+        <div style="color:#a1a1aa;margin-top:0.2rem;">
+          user: ${escapeHtml(e.username || '—')} &middot; resource: ${escapeHtml(e.resource_type || '—')}/${escapeHtml(e.resource_id || '—')}
+        </div>
+      </div>
+    `).join('');
+  } catch (err) { toast(err.message, 'error'); }
+}
+
+function switchTab(name) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === name));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.toggle('active', p.id === `panel-${name}`));
+  document.getElementById('userDropdown').classList.remove('show');
+  if (name === 'explore') loadExplore();
+  if (name === 'ledger') loadLedger();
+  if (name === 'axioms') loadMyAxioms();
+  if (name === 'profile') loadProfile();
+  if (name === 'files') loadFiles();
+  if (name === 'audit') loadAudit();
+  if (name === 'admin' && isAdmin()) loadUsers();
+}
+document.querySelectorAll('.tab-btn').forEach(b => b.addEventListener('click', () => switchTab(b.dataset.tab)));
+
+document.getElementById('avatarBtn').addEventListener('click', (e) => { e.stopPropagation(); document.getElementById('userDropdown').classList.toggle('show'); });
+document.addEventListener('click', () => document.getElementById('userDropdown').classList.remove('show'));
+
+function signOut() {
+  if (sessionToken) api('/logout', { method: 'POST' }).catch(() => {});
+  sessionToken = null; apiKey = null; currentUser = null;
+  localStorage.removeItem('mf_session'); localStorage.removeItem('mf_api_key'); localStorage.removeItem('mf_user');
+  document.getElementById('dashboard').style.display = 'none';
+  document.getElementById('authScreen').style.display = 'block';
+}
+
+/* ===================================================================
+   AUTH
+   =================================================================== */
+document.getElementById('loginForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = e.target.querySelector('button');
+  btn.disabled = true; btn.innerHTML = '<span class="spinner"></span>';
+  try {
+    const data = await api('/login', { method: 'POST', body: JSON.stringify({ username: document.getElementById('loginUser').value, password: document.getElementById('loginPass').value }) });
+    sessionToken = data.session_token;
+    if (data.api_key) apiKey = data.api_key;
+    currentUser = { username: data.username, display_name: data.display_name,
+                    role: data.role || 'user',
+                    permissions: data.permissions || [] };
+    localStorage.setItem('mf_session', sessionToken);
+    localStorage.setItem('mf_api_key', apiKey);
+    localStorage.setItem('mf_user', JSON.stringify(currentUser));
+    showDashboard();
+    toast('Welcome back!', 'success');
+  } catch (err) { toast(err.message, 'error'); }
+  btn.disabled = false; btn.textContent = 'Sign In';
+});
+
+document.getElementById('registerForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = e.target.querySelector('button');
+  btn.disabled = true; btn.innerHTML = '<span class="spinner"></span>';
+  try {
+    const username = document.getElementById('regUser').value;
+    const password = document.getElementById('regPass').value;
+    const data = await api('/register', { method: 'POST', body: JSON.stringify({ username, email: document.getElementById('regEmail').value || null, password }) });
+    apiKey = data.api_key;
+    const login = await api('/login', { method: 'POST', body: JSON.stringify({ username, password }) });
+    sessionToken = login.session_token;
+    currentUser = { username: data.username, display_name: data.username,
+                    role: login.role || 'user',
+                    permissions: login.permissions || [] };
+    localStorage.setItem('mf_session', sessionToken);
+    localStorage.setItem('mf_api_key', apiKey);
+    localStorage.setItem('mf_user', JSON.stringify(currentUser));
+    showDashboard();
+    toast('Account created!', 'success');
+  } catch (err) { toast(err.message, 'error'); }
+  btn.disabled = false; btn.textContent = 'Register';
+});
+
+document.getElementById('showRegister').addEventListener('click', (e) => { e.preventDefault(); document.getElementById('loginForm').style.display = 'none'; document.getElementById('registerForm').style.display = 'block'; });
+document.getElementById('showLogin').addEventListener('click', (e) => { e.preventDefault(); document.getElementById('registerForm').style.display = 'none'; document.getElementById('loginForm').style.display = 'block'; });
+
+/* ===================================================================
+   SEED PRESETS
+   =================================================================== */
+async function loadSeedPresets() {
+  try {
+    const data = await api('/seeds/presets');
+    const sel = document.getElementById('seedPreset');
+    sel.innerHTML = '<option value="">-- Choose a preset --</option>' + data.presets.map(p => `<option value="${p.seed}">${p.label}</option>`).join('');
+    sel.addEventListener('change', (e) => {
+      if (e.target.value) document.getElementById('forgeSeed').value = e.target.value;
+    });
+  } catch {}
+}
+document.getElementById('clearSeedBtn').addEventListener('click', () => {
+  document.getElementById('forgeSeed').value = '';
+  document.getElementById('seedPreset').value = '';
+});
+
+/* ===================================================================
+   FORGE TAB
+   =================================================================== */
+const coordColors = ['#7c3aed', '#3b82f6', '#10b981', '#f59e0b', '#ef4444'];
+const coordLabels = ['Participation', 'Plasticity', 'Substrate', 'Temporal', 'Generative'];
+const COORD_KEYS = ['participation', 'plasticity', 'substrate', 'temporal', 'generative'];
+
+function coordArray(c) {
+  if (Array.isArray(c)) return c;
+  if (c && typeof c === 'object') return COORD_KEYS.map(k => c[k] ?? 0.5);
+  return [0.5, 0.5, 0.5, 0.5, 0.5];
+}
+const fmtNum = (v) => (typeof v === 'number' ? v.toFixed(3) : (v ?? '\u2014'));
+
+function makePentagonSvg(coords, sophiaPoint) {
+  const w = 80, h = 80, cx = 40, cy = 42, r = 30;
+  const pts = [];
+  for (let i = 0; i < 5; i++) {
+    const a = (Math.PI / 2) + (2 * Math.PI * i / 5);
+    const v = coords[i] || 0.5;
+    pts.push(`${cx + r * v * Math.cos(a)},${cy - r * v * Math.sin(a)}`);
+  }
+  const fill = sophiaPoint ? 'rgba(124,58,237,0.25)' : 'rgba(59,130,246,0.15)';
+  const stroke = sophiaPoint ? '#a78bfa' : '#3b82f6';
+  let svg = `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">`;
+  // Background pentagon outline
+  const bgPts = [];
+  for (let i = 0; i < 5; i++) {
+    const a = (Math.PI / 2) + (2 * Math.PI * i / 5);
+    bgPts.push(`${cx + r * Math.cos(a)},${cy - r * Math.sin(a)}`);
+  }
+  svg += `<polygon points="${bgPts.join(' ')}" fill="none" stroke="#2a2a3e" stroke-width="0.5"/>`;
+  svg += `<polygon points="${pts.join(' ')}" fill="${fill}" stroke="${stroke}" stroke-width="1.5"/>`;
+  // Dots at vertices
+  pts.forEach(p => { svg += `<circle cx="${p.split(',')[0]}" cy="${p.split(',')[1]}" r="2.5" fill="${stroke}"/>; });
+  if (sophiaPoint) svg += `<text x="${cx}" y="${h-2}" text-anchor="middle" fill="#4ade80" font-size="6" font-weight="600">sophia point</text>`;
+  svg += '</svg>';
+  return svg;
+}
+
+function metricBar(label, value, color) {
+  const pct = Math.max(2, Math.min(100, value * 100));
+  return `<div class="metric-bar-row"><span class="metric-bar-label">${label}</span><div class="metric-bar-track"><div class="metric-bar-fill" style="width:${pct}%;background:${color};"></div></div><span class="metric-bar-val">${typeof value==='number'?value.toFixed(3):value}</span></div>`;
+}
+
+document.getElementById('forgeCount').addEventListener('input', (e) => { document.getElementById('forgeCountVal').textContent = e.target.value; });
+
+document.getElementById('forgeBtn').addEventListener('click', async () => {
+  const seed = document.getElementById('forgeSeed').value.trim();
+  if (!seed) { toast('Please enter a seed text or select a preset', 'error'); return; }
+  const btn = document.getElementById('forgeBtn');
+  btn.disabled = true; btn.innerHTML = '<span class="spinner"></span> Generating...';
+  document.getElementById('forgeResults').innerHTML = '<div class="loading-overlay"><span class="spinner spinner-lg"></span> Forging axioms...</div>';
+  document.getElementById('forgeBatchBar').style.display = 'none';
+  try {
+    const data = await api('/generate', { method: 'POST', body: JSON.stringify({ seed, count: parseInt(document.getElementById('forgeCount').value), force_phase_transition: document.getElementById('forgePhase').checked, use_relativity: document.getElementById('forgeRelativity').checked }) });
+    window._forgeResults = data.axioms || data;
+    window._lastBatchId = data.batch_id || null;
+    if (data.batch_id) {
+      const sc = data.axioms.filter(a => a.sophia_point).length;
+      document.getElementById('batchInfo').innerHTML = `Batch: <code style="color:#a78bfa;">${data.batch_id}</code> &middot; ${data.axioms.length} axioms &middot; ${sc} sophia points &middot; saved as <code style="color:#a78bfa;">${data.saved_as || ''}</code>`;
+      document.getElementById('forgeBatchBar').style.display = 'block';
+    }
+    renderForgeResults(window._forgeResults);
+  } catch (err) { toast(err.message, 'error'); document.getElementById('forgeResults').innerHTML = ''; }
+  btn.disabled = false; btn.innerHTML = 'Generate';
+});
+
+function renderForgeResults(axioms) {
+  if (!axioms || !axioms.length) { document.getElementById('forgeResults').innerHTML = '<div class="empty-state"><p>No axioms generated</p></div>'; return; }
+  const html = axioms.map((a, i) => {
+    const m = a.metrics || {};
+    const sophia = m.sophia_score ?? a.sophia_score ?? 0;
+    const isSophia = a.sophia_point || sophia >= 0.618;
+    const coords = coordArray(a.coordinates || m.coordinates);
+    const fw = a.framework || a.framework_name || '';
+    const isHybrid = fw && fw.startsWith('HYBRID');
+    const eq = a.equation_ref ? (a.equation_ref.id ? `${a.equation_ref.id}` : '') : '';
+    const eqTitle = a.equation_ref ? (a.equation_ref.title || '') : '';
+
+    // Tags
+    const tags = [];
+    if (isHybrid) { tags.push(fw.split('::').slice(1).join(' \u00B7 ')); tags.push({text:'hybrid', cls:'hybrid'}); }
+    if (isSophia) tags.push({text:'sophia point' + (a.phase_transition_forced ? ' (forced)' : ''), cls:'sophia'});
+    if (a.category) tags.push(a.category);
+    const tagsHtml = tags.length ? `<div class="tag-row">${tags.map(t => typeof t === 'string' ? `<span class="tag-chip hybrid">${t}</span>` : `<span class="tag-chip ${t.cls}">${t.text}</span>`).join('')}</div>` : '';
+
+    // Pentagon
+    const pentSvg = makePentagonSvg(coords, isSophia);
+
+    // Metric bars
+    const barsHtml = [
+      metricBar('novelty', m.novelty ?? 0, '#3b82f6'),
+      metricBar('coherence', m.coherence ?? 0, '#7c3aed'),
+      metricBar('alienness', m.alienness ?? 0, '#f59e0b'),
+      metricBar('elegance', m.elegance ?? 0, '#10b981'),
+      metricBar('sophia', sophia, isSophia ? '#4ade80' : '#fbbf24'),
+    ].join('');
+
+    // Equation footer
+    const eqFooter = (eq || eqTitle || a.mechanism) ? `<div class="eq-footer">${eq ? eq : ''}${eqTitle ? ' \u2014 ' + eqTitle : ''}${a.mechanism ? ' \u00B7 ' + a.mechanism : ''}</div>` : '';
+
+    // Coordinate bars (small)
+    const barsSmall = coords.map((c, j) => `<div class="coord-bar" style="height:${Math.max(4, c*40)}px;background:${coordColors[j]||'#7c3aed'}" title="${coordLabels[j]}: ${c}"></div>`).join('');
+
+    return `<div class="card axiom-card">
+      <div class="card-header">
+        <span class="card-title">${a.name || 'Axiom #'+(i+1)} ${a.id ? '<span style="color:#71717a;font-weight:400;font-size:0.8rem;">'+a.id+'</span>' : ''}</span>
+        <span class="badge-pill ${isSophia?'badge-green':'badge-yellow'}">Sophia: ${typeof sophia==='number'?sophia.toFixed(3):sophia}</span>
+      </div>
+      ${tagsHtml}
+      <div style="display:flex;gap:1rem;align-items:flex-start;">
+        <div class="pentagon-wrap">${pentSvg}</div>
+        <div style="flex:1;min-width:0;">
+          <p style="margin-bottom:0.6rem;color:#c4c4c7;line-height:1.6;">${a.axiom || a.axiom_text || a.text || '\u2014'}</p>
+          ${barsHtml}
+        </div>
+      </div>
+      ${eqFooter}
+      <div class="coord-bars" title="Coordinates">${barsSmall}</div>
+      <div style="margin-top:0.75rem;display:flex;gap:0.5rem;flex-wrap:wrap;">
+        <button class="btn btn-sm btn-secondary" onclick="shareAxiom(${i})">Share to Ledger</button>
+        <button class="export-btn" onclick="exportAxiom(${i})">Export JSON</button>
+      </div>
+    </div>`;
+  }).join('');
+  document.getElementById('forgeResults').innerHTML = html;
+}
+
+/* ===================================================================
+   EXPORT ALL (BATCH)
+   =================================================================== */
+document.getElementById('exportAllBtn').addEventListener('click', async () => {
+  const axioms = window._forgeResults;
+  if (!axioms || !axioms.length) { toast('No axioms to export', 'error'); return; }
+  try {
+    const body = {};
+    if (window._lastBatchId) body.batch_id = window._lastBatchId;
+    else body.axiom_ids = axioms.map(a => a.id).filter(Boolean);
+    const data = await api('/export/batch', { method: 'POST', body: JSON.stringify(body) });
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const el = document.createElement('a');
+    const fn = `batch_export_${data.axiom_count}ax_s${data.sophia_points_in_batch}.json`;
+    el.href = url; el.download = fn;
+    document.body.appendChild(el); el.click(); el.remove(); URL.revokeObjectURL(url);
+    toast(`Exported ${data.axiom_count} axioms!`, 'success');
+  } catch (err) { toast(err.message, 'error'); }
+});
+
+async function shareAxiom(idx) {
+  const a = window._forgeResults?.[idx];
+  if (!a) return;
+  if (!a.id) { toast('Axiom has no id; cannot share. Try generating with auth.', 'error'); return; }
+  try {
+    await api('/share', { method: 'POST', body: JSON.stringify({ axiom_id: a.id }) });
+    toast('Shared to ledger!', 'success');
+  } catch (err) { toast(err.message, 'error'); }
+}
+
+function exportAxiom(idx) {
+  const a = window._forgeResults?.[idx];
+  if (!a) return;
+  const m = a.metrics || {};
+  const topKey = Object.entries(m).sort((x,y) => (y[1]||0) - (x[1]||0))[0];
+  const fn = `${a.id || 'axiom'}_${topKey?topKey[0]:'x'}${(topKey?topKey[1]:0).toFixed(2)}_s${a.sophia_point?1:0}.json`;
+  const blob = new Blob([JSON.stringify(a, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const el = document.createElement('a');
+  el.href = url; el.download = fn;
+  document.body.appendChild(el); el.click(); el.remove(); URL.revokeObjectURL(url);
+  toast('Axiom exported!', 'success');
+}
+
+/* ===================================================================
+   EXPLORE TAB
+   =================================================================== */
+async function loadExplore() {
+  let firstCluster = null;
+  try {
+    const data = await api('/clusters');
+    const clusters = data.clusters || [];
+    firstCluster = clusters[0]?.cluster || null;
+    const sel = document.getElementById('exploreCluster');
+    sel.innerHTML = clusters.map(c => `<option value="${c.cluster}">${c.cluster} (${c.count})</option>`).join('');
+  } catch {}
+  try {
+    if (!firstCluster) throw new Error('no clusters');
+    const data = await api(`/equations?cluster=${encodeURIComponent(firstCluster)}`);
+    renderExploreResults(data.equations || []);
+  } catch (err) { document.getElementById('exploreResults').innerHTML = `<div class="empty-state"><p>Could not load equations: ${err.message}</p></div>`; }
+}
+
+function renderExploreResults(items) {
+  if (!items || !items.length) { document.getElementById('exploreResults').innerHTML = '<div class="empty-state"><p>No equations found</p></div>'; return; }
+  document.getElementById('exploreResults').innerHTML = items.map(e => `<div class="card">
+    <div class="card-header"><span class="card-title">${e.title || e.id || 'Equation'}</span><span class="badge-pill badge-purple">${e.cluster || 'General'}</span></div>
+    <p style="font-family:monospace;font-size:0.85rem;color:#a78bfa;margin-bottom:0.5rem;">${e.equation || e.expression || '\u2014'}</p>
+    <p style="font-size:0.85rem;color:#71717a;">${e.description || ''}</p>
+  </div>`).join('');
+}
+
+document.getElementById('exploreSearch').addEventListener('input', debounce(async (e) => {
+  const q = e.target.value.trim();
+  if (!q) { loadExplore(); return; }
+  try { const d = await api(`/search?q=${encodeURIComponent(q)}`); renderExploreResults(d.results || []); } catch {}
+}, 300));
+document.getElementById('exploreCluster').addEventListener('change', async (e) => {
+  const v = e.target.value;
+  if (!v) { loadExplore(); return; }
+  try { const d = await api(`/equations?cluster=${encodeURIComponent(v)}`); renderExploreResults(d.equations || []); } catch {}
+});
+
+/* ===================================================================
+   SIMULATE TAB (side-by-side, handled by .sim-grid CSS)
+   =================================================================== */
+document.getElementById('geoSteps').addEventListener('input', (e) => { document.getElementById('geoStepsVal').textContent = e.target.value; });
+
+document.getElementById('simBtn').addEventListener('click', async () => {
+  const coords = [parseFloat(document.getElementById('simT1').value), parseFloat(document.getElementById('simT2').value), parseFloat(document.getElementById('simT3').value), parseFloat(document.getElementById('simT4').value), parseFloat(document.getElementById('simT5').value)];
+  if (coords.some(c => isNaN(c))) { toast('Please enter valid coordinates', 'error'); return; }
+  const btn = document.getElementById('simBtn');
+  btn.disabled = true; btn.innerHTML = '<span class="spinner"></span>';
+  document.getElementById('simResults').innerHTML = '<div class="loading-overlay"><span class="spinner spinner-lg"></span></div>';
+  try {
+    const data = await api('/simulate', { method: 'POST', body: JSON.stringify({ coordinates: coords }) });
+    renderSimResults(data);
+  } catch (err) { toast(err.message, 'error'); document.getElementById('simResults').innerHTML = ''; }
+  btn.disabled = false; btn.textContent = 'Simulate';
+});
+
+function renderSimResults(data) {
+  const c = data.curvature || {};
+  const ricci = c.ricci_scalar ?? '\u2014';
+  const grad = data.gradient_flow || null;
+  let vizHtml = '';
+  if (grad && grad.length >= 2) {
+    const w = 300, h = 80, pts = grad.length;
+    const val = (p) => Array.isArray(p) ? p[0] : p;
+    const points = grad.map((g, i) => `${(i / (pts - 1)) * w},${h - val(g) * h}`).join(' ');
+    vizHtml = `<div class="viz-container"><svg width="100%" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none"><polyline points="${points}" fill="none" stroke="#7c3aed" stroke-width="2"/><circle cx="0" cy="${h - val(grad[0]) * h}" r="4" fill="#3b82f6"/><circle cx="${w}" cy="${h - val(grad[grad.length-1]) * h}" r="4" fill="#10b981"/></svg></div>`;
+  }
+  document.getElementById('simResults').innerHTML = `<div style="font-size:0.85rem;">
+    <p><strong>Ricci scalar:</strong> <span class="badge-pill badge-blue">${typeof ricci==='number'?ricci.toFixed(6):ricci}</span>
+    ${typeof c.conformal_factor==='number'?` <strong>Conformal:</strong> <span class="badge-pill badge-purple">${c.conformal_factor.toFixed(6)}</span>`:''}
+    ${typeof c.gradient_norm==='number'?` <strong>|\u2207|:</strong> <span class="badge-pill badge-gray">${c.gradient_norm.toFixed(6)}</span>`:''}</p>
+    <h4 style="margin-top:0.75rem;margin-bottom:0.3rem;font-size:0.82rem;">Gradient Flow</h4>
+    ${vizHtml || '<p style="color:#71717a;font-size:0.82rem;">No gradient data</p>'}
+  </div>`;
+}
+
+document.getElementById('geoBtn').addEventListener('click', async () => {
+  const parseCoords = (s) => s.split(',').map(n => parseFloat(n.trim()));
+  const start = parseCoords(document.getElementById('geoStart').value);
+  const end = parseCoords(document.getElementById('geoEnd').value);
+  const steps = parseInt(document.getElementById('geoSteps').value);
+  if (start.length !== 5 || end.length !== 5 || start.some(isNaN) || end.some(isNaN)) { toast('Enter 5 comma-separated values (0-1)', 'error'); return; }
+  const btn = document.getElementById('geoBtn');
+  btn.disabled = true; btn.innerHTML = '<span class="spinner"></span>';
+  try {
+    const data = await api('/geodesic', { method: 'POST', body: JSON.stringify({ start, end, steps }) });
+    renderGeoResults(data);
+  } catch (err) { toast(err.message, 'error'); document.getElementById('geoResults').innerHTML = ''; }
+  btn.disabled = false; btn.textContent = 'Compute Path';
+});
+
+function renderGeoResults(data) {
+  const path = data.path || [];
+  if (!path.length) { document.getElementById('geoResults').innerHTML = '<div class="empty-state"><p>No path returned</p></div>'; return; }
+  const w = 300, h = 60;
+  const pts = path.map((p, i) => `${(i/(path.length-1))*w},${h-(p[0]||0.5)*h}`).join(' ');
+  document.getElementById('geoResults').innerHTML = `<div class="card">
+    <div class="card-header"><span class="card-title">Geodesic Path</span><span class="badge-pill badge-gray">${path.length} steps</span></div>
+    <div class="viz-container"><svg width="100%" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none"><polyline points="${pts}" fill="none" stroke="#10b981" stroke-width="2"/>${path.map((p, i) => `<circle cx="${(i/(path.length-1))*w}" cy="${h-(p[0]||0.5)*h}" r="3" fill="#7c3aed"/>`).join('')}</svg></div>
+  </div>`;
+}
+
+/* ===================================================================
+   LEDGER TAB
+   =================================================================== */
+async function loadLedger() {
+  const container = document.getElementById('ledgerFeed');
+  container.innerHTML = '<div class="loading-overlay"><span class="spinner spinner-lg"></span></div>';
+  try {
+    const data = await api('/ledger');
+    renderLedgerItems(data.items || data.axioms || data || []);
+  } catch (err) { container.innerHTML = `<div class="empty-state"><p>Could not load ledger: ${err.message}</p></div>`; }
+  try {
+    const featured = await api('/ledger/featured');
+    const fi = featured.featured || [];
+    if (fi.length) {
+      document.getElementById('ledgerFeatured').innerHTML = `<div class="featured"><h3>Featured</h3>${fi.slice(0, 3).map(e => { const a = e.axiom_data || e; return `<p style="font-size:0.9rem;">"${a.axiom || '\u2014'}" \u2014 <strong>${e.attribution || 'Anonymous'}</strong> <span class="badge-pill badge-green">Sophia: ${(a.metrics?.sophia_score ?? 0).toFixed(3)}</span></p>`; }).join('')}</div>`;
+    }
+  } catch {}
+}
+
+function renderLedgerItems(items) {
+  if (!items || !items.length) { document.getElementById('ledgerFeed').innerHTML = '<div class="empty-state"><p>No shared axioms yet</p></div>'; return; }
+  document.getElementById('ledgerFeed').innerHTML = items.map(e => {
+    const a = e.axiom_data || e;
+    const sophia = a.metrics?.sophia_score ?? a.sophia_score ?? e.sophia_score ?? 0;
+    const files = e.attached_files || [];
+    const filesHtml = files.length ? `<div style="margin-top:0.5rem;padding-top:0.5rem;border-top:1px solid #1e1e2e;font-size:0.78rem;color:#71717a;">Attached files: ${files.map(f => `<span class="tag-chip">${f.name || f.file_id}</span>`).join(' ')}</div>` : '';
+    return `<div class="card">
+      <p style="margin-bottom:0.5rem;">"${a.axiom || a.axiom_text || a.text || '\u2014'}"</p>
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;">
+        <div style="display:flex;align-items:center;gap:0.75rem;font-size:0.8rem;color:#71717a;">
+          <span>by <strong style="color:#e4e4e7;">${e.attribution || e.author || 'Anonymous'}</strong></span>
+          <button class="like-btn" onclick="likeLedger('${e.ledger_hash}')">&#x2764; ${e.likes ?? 0}</button>
+          <span class="badge-pill ${sophia>=0.618?'badge-green':'badge-yellow'}">Sophia: ${sophia.toFixed(3)}</span>
+          ${(e.license || a.license) ? `<span class="badge-pill badge-blue">${e.license || a.license}</span>` : ''}
+        </div>
+      </div>
+      ${filesHtml}
+    </div>`;
+  }).join('');
+}
+
+document.getElementById('verifyChainBtn').addEventListener('click', async () => {
+  const btn = document.getElementById('verifyChainBtn');
+  btn.disabled = true; btn.innerHTML = '<span class="spinner"></span>';
+  const el = document.getElementById('verifyResult');
+  el.style.display = 'block'; el.innerHTML = '<div class="loading-overlay"><span class="spinner spinner-lg"></span> Verifying...</div>';
+  try {
+    const data = await api('/ledger/verify');
+    const ok = data.is_valid ?? false;
+    el.innerHTML = `<div class="card" style="border-color:${ok?'#22c55e':'#ef4444'};"><strong style="color:${ok?'#4ade80':'#f87171'};">${ok?'Chain Verified':'Verification Failed'}</strong><p style="font-size:0.85rem;color:#71717a;margin-top:0.25rem;">${ok?'All entries are valid.':'Some entries could not be verified.'}</p></div>`;
+  } catch (err) { el.innerHTML = `<div class="card" style="border-color:#ef4444;"><strong style="color:#f87171;">Error</strong><p style="font-size:0.85rem;color:#71717a;">${err.message}</p></div>`; }
+  btn.disabled = false; btn.textContent = 'Verify Chain';
+});
+
+document.getElementById('ledgerSearch').addEventListener('input', debounce(async (e) => {
+  const q = e.target.value.trim();
+  try { const d = await api(`/ledger?search=${encodeURIComponent(q)}`); renderLedgerItems(d.items || d.axioms || d || []); } catch {}
+}, 300));
+document.getElementById('ledgerSort').addEventListener('change', async (e) => {
+  try { const d = await api(`/ledger?sort_by=${e.target.value}`); renderLedgerItems(d.items || []); } catch {}
+});
+
+/* ===================================================================
+   AXIOMS TAB
+   =================================================================== */
+async function loadMyAxioms() {
+  const container = document.getElementById('axiomsList');
+  container.innerHTML = '<div class="loading-overlay"><span class="spinner spinner-lg"></span></div>';
+  try {
+    const data = await api('/axioms');
+    renderMyAxioms(data.items || []);
+  } catch (err) { container.innerHTML = `<div class="empty-state"><p>Could not load axioms: ${err.message}</p></div>`; }
+}
+
+const statusColors = { draft: 'badge-gray', published: 'badge-green', archived: 'badge-yellow' };
+const visColors = { public: 'badge-blue', private: 'badge-gray', unlisted: 'badge-purple', link_only: 'badge-blue' };
+
+function renderMyAxioms(items) {
+  if (!items || !items.length) { document.getElementById('axiomsList').innerHTML = '<div class="empty-state"><div class="icon">&#x1F4DC;</div><p>No axioms yet. Visit the Forge tab to create some!</p></div>'; return; }
+  document.getElementById('axiomsList').innerHTML = items.map((a, i) => {
+    const status = a.status || 'draft';
+    const vis = a.visibility || 'private';
+    const created = a.created_at ? new Date(a.created_at).toLocaleDateString() : '\u2014';
+    return `<div class="card axiom-card" onclick="toggleExpand(${i})">
+      <div class="card-header">
+        <span class="card-title">${a.name || 'Untitled Axiom'} <span style="color:#71717a;font-weight:400;font-size:0.8rem;">${a.id || ''}</span></span>
+        <div style="display:flex;gap:0.5rem;">
+          <span class="badge-pill ${statusColors[status]||'badge-gray'}">${status}</span>
+          <span class="badge-pill ${visColors[vis]||'badge-gray'}">${vis}</span>
+        </div>
+      </div>
+      <p style="font-size:0.9rem;color:#c4c4c7;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${a.axiom || '\u2014'}</p>
+      <p style="font-size:0.75rem;color:#71717a;margin-top:0.35rem;">Created: ${created}</p>
+      <div class="expand-content" id="expand-${i}">
+        <div class="form-group"><label>Name</label><input type="text" id="aName-${i}" value="${a.name||''}" onclick="event.stopPropagation()"></div>
+        <div class="form-group"><label>Tags (comma-separated)</label><input type="text" id="aTags-${i}" value="${(a.tags||[]).join(', ')}" onclick="event.stopPropagation()"></div>
+        <div class="grid-2">
+          <div class="form-group"><label>Status</label><select id="aStatus-${i}" onclick="event.stopPropagation()"><option value="draft" ${status==='draft'?'selected':''}>Draft</option><option value="published" ${status==='published'?'selected':''}>Published</option><option value="archived" ${status==='archived'?'selected':''}>Archived</option></select></div>
+          <div class="form-group"><label>Visibility</label><select id="aVis-${i}" onclick="event.stopPropagation()"><option value="private" ${vis==='private'?'selected':''}>Private</option><option value="public" ${vis==='public'?'selected':''}>Public</option><option value="unlisted" ${vis==='unlisted'?'selected':''}>Unlisted</option></select></div>
+        </div>
+        <div style="display:flex;gap:0.5rem;margin-top:0.5rem;">
+          <button class="btn btn-sm btn-primary" onclick="event.stopPropagation();saveAxiom(${i},'${a.id||''}')">Save</button>
+          <button class="btn btn-sm btn-secondary" onclick="event.stopPropagation();analyzeAxiom(${i},'${a.id||''}')">Analyze</button>
+          <button class="btn btn-sm btn-danger" onclick="event.stopPropagation();deleteAxiom(${i},'${a.id||''}')">Delete</button>
+        </div>
+        <div id="analysis-${i}" style="margin-top:0.75rem;"></div>
+      </div>
+    </div>`;
+  }).join('');
+  window._myAxioms = items;
+}
+
+function toggleExpand(i) { const el = document.getElementById(`expand-${i}`); if (el) el.classList.toggle('open'); }
+
+async function saveAxiom(i, id) {
+  try { await api(`/axiom/${id}`, { method: 'PUT', body: JSON.stringify({ name: document.getElementById(`aName-${i}`).value, tags: document.getElementById(`aTags-${i}`).value.split(',').map(t=>t.trim()).filter(Boolean), status: document.getElementById(`aStatus-${i}`).value, visibility: document.getElementById(`aVis-${i}`).value })}); toast('Axiom updated', 'success'); } catch (err) { toast(err.message, 'error'); }
+}
+async function analyzeAxiom(i, id) {
+  const el = document.getElementById(`analysis-${i}`);
+  el.innerHTML = '<span class="spinner"></span> Analyzing...';
+  try { const data = await api('/analyze/axiom', { method: 'POST', body: JSON.stringify({ axiom_id: id, mode: 'basic' }) }); el.innerHTML = `<div class="card" style="background:#0a0a0f;"><div class="metrics">${Object.entries(data).filter(([k])=>!['axiom_id','text'].includes(k)).map(([k,v])=>`<span class="metric"><strong>${k}:</strong> ${typeof v==='number'?v.toFixed(3):v}</span>`).join('')}</div></div>`; } catch (err) { el.innerHTML = `<p style="color:#f87171;font-size:0.85rem;">${err.message}</p>`; }
+}
+async function deleteAxiom(i, id) {
+  if (!await confirm('Delete Axiom', 'This cannot be undone. Delete this axiom?')) return;
+  try { await api(`/axiom/${id}`, { method: 'DELETE' }); toast('Axiom deleted', 'success'); loadMyAxioms(); } catch (err) { toast(err.message, 'error'); }
+}
+document.getElementById('axiomFilter').addEventListener('change', (e) => {
+  const filter = e.target.value;
+  const items = window._myAxioms || [];
+  renderMyAxioms(filter ? items.filter(a => (a.status||'draft') === filter) : items);
+});
+
+/* ===================================================================
+   PROFILE TAB
+   =================================================================== */
+async function loadProfile() {
+  try {
+    const data = await api('/me');
+    currentUser = { ...currentUser, ...data };
+    localStorage.setItem('mf_user', JSON.stringify(currentUser));
+    renderRoleUI();
+    document.getElementById('pUser').textContent = data.username || '\u2014';
+    document.getElementById('pName').textContent = data.display_name || '\u2014';
+    document.getElementById('pEmail').textContent = data.email || '\u2014';
+    document.getElementById('pBio').textContent = data.bio || '\u2014';
+    document.getElementById('pOrg').textContent = data.organization || '\u2014';
+    const rolePill = document.getElementById('pRole');
+    if (rolePill) rolePill.textContent = data.role || 'user';
+    document.getElementById('editName').value = data.display_name || '';
+    document.getElementById('editEmail').value = data.email || '';
+    document.getElementById('editBio').value = data.bio || '';
+    document.getElementById('editOrg').value = data.organization || '';
+    document.getElementById('statGen').textContent = data.total_axioms_generated ?? 0;
+    document.getElementById('statShared').textContent = data.total_axioms_shared ?? 0;
+    document.getElementById('statRep').textContent = data.reputation_score ?? 0;
+  } catch {}
+  if (apiKey) document.getElementById('keyDisplay').textContent = apiKey;
+}
+
+document.getElementById('updateProfileBtn').addEventListener('click', async () => {
+  const btn = document.getElementById('updateProfileBtn');
+  btn.disabled = true; btn.innerHTML = '<span class="spinner"></span>';
+  try { await api('/profile', { method: 'PUT', body: JSON.stringify({ display_name: document.getElementById('editName').value, email: document.getElementById('editEmail').value, bio: document.getElementById('editBio').value, organization: document.getElementById('editOrg').value })}); toast('Profile updated', 'success'); loadProfile(); } catch (err) { toast(err.message, 'error'); }
+  btn.disabled = false; btn.textContent = 'Update Profile';
+});
+
+document.getElementById('rotateKeyBtn').addEventListener('click', async () => {
+  if (!await confirm('Rotate API Key', 'Your current key will be invalidated. Continue?')) return;
+  try { const data = await api('/rotate-key', { method: 'POST' }); apiKey = data.api_key; localStorage.setItem('mf_api_key', apiKey); document.getElementById('keyDisplay').textContent = apiKey; toast('New API key generated. Save it now.', 'success'); } catch (err) { toast(err.message, 'error'); }
+});
+
+/* ===================================================================
+   NOTIFICATIONS
+   =================================================================== */
+async function loadNotifications() {
+  try {
+    const data = await api('/notifications');
+    const items = data.notifications || data.items || data || [];
+    const unread = items.filter(n => !n.is_read).length;
+    if (unread > 0) { const badge = document.getElementById('notifBadge'); badge.textContent = unread; badge.style.display = 'flex'; }
+    document.getElementById('notifCount').textContent = unread;
+    if (items.length) {
+      document.getElementById('notifList').innerHTML = items.slice(0, 20).map(n =>
+        `<div class="notif-item ${n.is_read ? '' : 'unread'}" ${!n.is_read ? `onclick="markNotifRead('${n.id}')"` : ''}><div class="notif-dot" style="${n.is_read ? 'background:#2a2a3e;' : ''}"></div><div><div>${n.message || n.title || 'Notification'}</div><div style="font-size:0.75rem;color:#71717a;margin-top:2px;">${n.created_at ? new Date(n.created_at).toLocaleString() : ''}</div></div></div>`
+      ).join('');
+    } else { document.getElementById('notifList').innerHTML = '<div class="empty-state"><p>No notifications</p></div>'; }
+  } catch { document.getElementById('notifList').innerHTML = '<div class="empty-state"><p>Could not load notifications</p></div>'; }
+}
+document.getElementById('bellBtn').addEventListener('click', () => { switchTab('profile'); document.getElementById('notifBadge').style.display = 'none'; });
+
+/* ===================================================================
+   FILES TAB (v0.6.2 — enhanced)
+   =================================================================== */
+function setUploadVis(vis, btn) {
+  uploadVisibility = vis;
+  document.querySelectorAll('.vis-opt').forEach(b => b.className = 'vis-opt');
+  btn.classList.add('active-' + (vis === 'link_only' ? 'link' : vis));
+}
+
+async function loadFiles() {
+  const container = document.getElementById('filesList');
+  container.innerHTML = '<div class="loading-overlay"><span class="spinner spinner-lg"></span></div>';
+  try {
+    const data = await api('/files');
+    const files = data.files || [];
+    if (!files.length) { container.innerHTML = '<div class="empty-state"><div class="icon">&#x1F4C1;</div><p>No files uploaded yet</p></div>'; return; }
+    container.innerHTML = files.map(f => {
+      const size = f.file_size ? (f.file_size < 1024 ? f.file_size + ' B' : (f.file_size / 1024).toFixed(1) + ' KB') : '\u2014';
+      const date = f.created_at ? new Date(f.created_at).toLocaleDateString() : '\u2014';
+      const vis = f.visibility || (f.is_public ? 'public' : 'private');
+      const visBadge = vis === 'public' ? 'badge-green' : vis === 'link_only' ? 'badge-blue' : 'badge-gray';
+      const fname = (f.original_name || 'unnamed').toLowerCase();
+      const canPreview = fname.endsWith('.md') || fname.endsWith('.pdf') || fname.endsWith('.txt') || fname.endsWith('.json');
+      return `<div class="card">
+        <div class="file-card">
+          <div class="file-info">
+            <div class="file-name">${f.original_name || 'unnamed'}</div>
+            <div class="file-meta">${size} &middot; ${f.mime_type || 'unknown'} &middot; ${date}
+              <span class="badge-pill ${visBadge}" style="margin-left:0.3rem;">${vis}</span>
+              ${f.linked_ledger && f.linked_ledger.length ? '<span class="badge-pill badge-purple" style="margin-left:0.2rem;">&#x1F517; linked</span>' : ''}
+            </div>
+            ${f.description ? `<div style="font-size:0.82rem;color:#71717a;margin-top:4px;">${f.description}</div>` : ''}
+          </div>
+          <div style="display:flex;gap:0.4rem;flex-wrap:wrap;">
+            ${canPreview ? `<button class="btn btn-sm btn-secondary" onclick="previewFile('${f.id}')">Preview</button>` : ''}
+            <select onchange="changeFileVis('${f.id}',this.value)" style="font-size:0.72rem;padding:0.25rem 0.3rem;width:auto;min-width:90px;">
+              <option value="private" ${vis==='private'?'selected':''}>Private</option>
+              <option value="public" ${vis==='public'?'selected':''}>Public</option>
+              <option value="link_only" ${vis==='link_only'?'selected':''}>Link Only</option>
+            </select>
+            <button class="btn btn-sm btn-secondary" onclick="downloadFile('${f.id}')">Download</button>
+            <button class="btn btn-sm btn-danger" onclick="deleteFile('${f.id}')">Delete</button>
+          </div>
+        </div>
+      </div>`;
+    }).join('');
+  } catch (err) { container.innerHTML = `<div class="empty-state"><p>Could not load files: ${err.message}</p></div>`; }
+}
+
+document.getElementById('uploadZone').addEventListener('click', () => document.getElementById('fileInput').click());
+document.getElementById('uploadZone').addEventListener('dragover', (e) => { e.preventDefault(); e.currentTarget.classList.add('dragover'); });
+document.getElementById('uploadZone').addEventListener('dragleave', () => document.getElementById('uploadZone').classList.remove('dragover'));
+document.getElementById('uploadZone').addEventListener('drop', (e) => { e.preventDefault(); document.getElementById('uploadZone').classList.remove('dragover'); if (e.dataTransfer.files.length) uploadFile(e.dataTransfer.files[0]); });
+document.getElementById('fileInput').addEventListener('change', (e) => { if (e.target.files.length) uploadFile(e.target.files[0]); });
+
+async function uploadFile(file) {
+  const formData = new FormData();
+  formData.append('file', file);
+  formData.append('description', document.getElementById('fileDesc').value || '');
+  formData.append('is_public', uploadVisibility !== 'private');
+  formData.append('visibility', uploadVisibility);
+  toast('Uploading...', 'info');
+  try {
+    const headers = {};
+    if (sessionToken) headers['X-Session-Token'] = sessionToken;
+    const res = await fetch('/api/upload', { method: 'POST', headers, body: formData });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.detail || 'Upload failed');
+    // Link to ledger if hash provided
+    const ledgerHash = document.getElementById('fileLedgerLink').value.trim();
+    if (ledgerHash && data.id) {
+      try { await api(`/files/${data.id}/link-ledger`, { method: 'POST', body: JSON.stringify({ ledger_hash: ledgerHash }) }); toast('File uploaded and linked to ledger!', 'success'); } catch (e2) { toast('File uploaded (ledger link failed)', 'info'); }
+    } else { toast('File uploaded!', 'success'); }
+    loadFiles();
+  } catch (err) { toast(err.message, 'error'); }
+}
+
+async function previewFile(id) {
+  const panel = document.getElementById('filePreviewPanel');
+  panel.style.display = 'block';
+  panel.innerHTML = '<div class="preview-widget"><div class="preview-header"><span>Loading preview...</span></div><div class="preview-body"><div class="loading-overlay"><span class="spinner"></span></div></div></div>';
+  try {
+    const data = await api(`/files/${id}/preview`);
+    let contentHtml = '';
+    if (data.type === 'markdown') {
+      contentHtml = simpleMarkdown(data.content || '');
+    } else {
+      contentHtml = `<pre style="white-space:pre-wrap;word-break:break-word;">${escapeHtml(data.content || '[empty]')}</pre>`;
+    }
+    panel.innerHTML = `<div class="preview-widget">
+      <div class="preview-header">
+        <span><strong>${data.filename}</strong> ${data.type === 'markdown' ? '<span class="badge-pill badge-blue">Markdown</span>' : data.type === 'pdf' ? '<span class="badge-pill badge-red">PDF</span>' : '<span class="badge-pill badge-gray">' + data.type + '</span>'}</span>
+        <button class="btn btn-sm btn-secondary" onclick="document.getElementById('filePreviewPanel').style.display='none'">Close</button>
+      </div>
+      <div class="preview-body">${contentHtml}</div>
+    </div>`;
+  } catch (err) { panel.innerHTML = `<div class="card" style="border-color:#ef4444;"><p style="color:#f87171;">Preview failed: ${err.message}</p></div>`; }
+}
+
+function escapeHtml(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function simpleMarkdown(md) {
+  let h = escapeHtml(md);
+  h = h.replace(/^### (.+)$/gm, '<h3>$1</h3>');
+  h = h.replace(/^## (.+)$/gm, '<h2>$1</h2>');
+  h = h.replace(/^# (.+)$/gm, '<h1>$1</h1>');
+  h = h.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  h = h.replace(/\*(.+?)\*/g, '<em>$1</em>');
+  h = h.replace(/`(.+?)`/g, '<code>$1</code>');
+  h = h.replace(/^&gt; (.+)$/gm, '<blockquote>$1</blockquote>');
+  h = h.replace(/^- (.+)$/gm, '<li>$1</li>');
+  h = h.replace(/^---$/gm, '<hr>');
+  h = h.replace(/\n\n/g, '</p><p>');
+  h = h.replace(/\n/g, '<br>');
+  return '<p>' + h + '</p>';
+}
+
+async function changeFileVis(id, vis) {
+  try { await api(`/files/${id}/visibility`, { method: 'PUT', body: JSON.stringify({ visibility: vis }) }); toast('Visibility updated', 'success'); loadFiles(); } catch (err) { toast(err.message, 'error'); }
+}
+
+async function downloadFile(id) {
+  try {
+    const data = await api('/files/' + id + '/download');
+    const blob = atob(data.content_b64);
+    const arr = new Uint8Array(blob.length);
+    for (let i = 0; i < blob.length; i++) arr[i] = blob.charCodeAt(i);
+    const url = URL.createObjectURL(new Blob([arr]));
+    const a = document.createElement('a'); a.href = url; a.download = data.filename || 'download';
+    document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+  } catch (err) { toast(err.message, 'error'); }
+}
+
+async function deleteFile(id) {
+  if (!await confirm('Delete File', 'Permanently delete this file?')) return;
+  try { await api('/files/' + id, { method: 'DELETE' }); toast('File deleted', 'success'); loadFiles(); } catch (err) { toast(err.message, 'error'); }
+}
+
+/* ===================================================================
+   AUDIT TAB
+   =================================================================== */
+async function loadAudit() {
+  const container = document.getElementById('auditList');
+  container.innerHTML = '<div class="loading-overlay"><span class="spinner spinner-lg"></span></div>';
+  const filter = document.getElementById('auditFilter').value;
+  try {
+    const params = filter ? '?action=' + filter + '&limit=100' : '?limit=100';
+    const data = await api('/audit' + params);
+    const entries = data.entries || [];
+    if (!entries.length) { container.innerHTML = '<div class="empty-state"><p>No audit entries found</p></div>'; }
+    else {
+      container.innerHTML = entries.map(e => {
+        const time = e.created_at ? new Date(e.created_at).toLocaleString() : '\u2014';
+        const meta = e.metadata ? Object.entries(e.metadata).map(([k,v])=>k+'='+(typeof v==='object'?JSON.stringify(v):v)).join(', ') : '';
+        return `<div class="audit-entry"><div class="audit-time">${time}</div><div class="audit-action ${e.action||''}">${e.action||'\u2014'}</div><div style="flex:1;"><div>${e.resource_type||''}${e.resource_id?' &middot; '+e.resource_id:''}</div>${meta?'<div style="font-size:0.75rem;color:#3f3f46;margin-top:2px;">'+meta+'</div>':''}</div></div>`;
+      }).join('');
+    }
+  } catch (err) { container.innerHTML = `<div class="empty-state"><p>Could not load audit log: ${err.message}</p></div>`; }
+  try {
+    const stats = await api('/audit/stats');
+    const el = document.getElementById('auditStats');
+    const actions = stats.actions || {};
+    const html = Object.entries(actions).sort((a,b)=>b[1]-a[1]).slice(0,8).map(([k,v])=>`<span class="metric"><strong>${k}:</strong> ${v}</span>`).join('');
+    el.innerHTML = `<div class="metrics">${html}</div><p style="font-size:0.78rem;color:#71717a;margin-top:0.5rem;">Total entries: ${stats.total_entries||0}</p>`;
+  } catch {}
+}
+document.getElementById('auditFilter').addEventListener('change', loadAudit);
+document.getElementById('auditRefreshBtn').addEventListener('click', loadAudit);
+
+/* ===================================================================
+   LIKE LEDGER
+   =================================================================== */
+async function likeLedger(hash) { if (!hash) return; try { await api('/ledger/'+hash+'/like', { method: 'POST' }); toast('Liked!', 'success'); loadLedger(); } catch (err) { toast(err.message, 'error'); } }
+
+/* ===================================================================
+   MARK NOTIFICATION READ
+   =================================================================== */
+async function markNotifRead(id) { if (!id) return; try { await api('/notifications/'+id+'/read', { method: 'POST' }); loadNotifications(); } catch {} }
+
+/* ===================================================================
+   UTILITIES
+   =================================================================== */
+function debounce(fn, ms) { let t; return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); }; }
+
+/* ----- INIT ----- */
+checkAuth();
+
+// Wire up admin-only buttons (no-op if the elements are hidden for non-admins)
+document.addEventListener('DOMContentLoaded', () => {
+  const refreshUsersBtn = document.getElementById('refreshUsersBtn');
+  if (refreshUsersBtn) refreshUsersBtn.addEventListener('click', loadUsers);
+  const loadFullAuditBtn = document.getElementById('loadFullAuditBtn');
+  if (loadFullAuditBtn) loadFullAuditBtn.addEventListener('click', loadFullAudit);
+});
+</script>
+</body>
+</html>
