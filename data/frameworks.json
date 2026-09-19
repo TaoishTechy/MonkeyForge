@@ -1,0 +1,952 @@
+[
+  {
+    "name": "Quantum_Cognitive_Framework",
+    "coordinates": [
+      0.85,
+      0.12,
+      0.73,
+      0.45,
+      0.31
+    ],
+    "description": "Models cognitive processes through quantum probability theory, superposition of mental states, and contextual decision-making beyond classical Bayesian frameworks.",
+    "mechanisms": [
+      "quantum_superposition_of_beliefs",
+      "contextual_probability_amplitudes",
+      "interference_based_decision_dynamics",
+      "entangled_cognitive_representations",
+      "Hilbert_space_cognitive_modeling"
+    ],
+    "category": "quantum_cognition"
+  },
+  {
+    "name": "Information_Thermodynamic_Bridge",
+    "coordinates": [
+      0.45,
+      0.67,
+      0.34,
+      0.78,
+      0.56
+    ],
+    "description": "Unifies Landauer's principle with statistical mechanics to bridge physical entropy and information-theoretic entropy in computational systems.",
+    "mechanisms": [
+      "Landauer_erasure_dissipation",
+      "Szilard_engine_information_work",
+      "Maxwell_demon_resolution",
+      "entropy_production_minimization",
+      "thermodynamic_computing_bounds"
+    ],
+    "category": "information_thermodynamics"
+  },
+  {
+    "name": "Causal_Emergence_Theory",
+    "coordinates": [
+      0.62,
+      0.83,
+      0.51,
+      0.29,
+      0.74
+    ],
+    "description": "Formalizes how higher-level causal structures can emerge from lower-level dynamics with greater effective information than their microscopic constituents.",
+    "mechanisms": [
+      "macro_state_coarse_graining",
+      "effective_information_asymmetry",
+      "causal_decomposition_theorem",
+      "interventional_causal_mapping",
+      "downward_causal_influence_quantification"
+    ],
+    "category": "causal_emergence"
+  },
+  {
+    "name": "Consciousness_Field_Framework",
+    "coordinates": [
+      0.78,
+      0.23,
+      0.89,
+      0.56,
+      0.42
+    ],
+    "description": "Treats consciousness as a fundamental field phenomenon emerging from integrated information dynamics across neural substrates.",
+    "mechanisms": [
+      "phenomenal_field_coherence",
+      "integrated_information_generation",
+      "global_workspace_broadcasting",
+      "neural_field_resonance",
+      "qualia_field_quantization"
+    ],
+    "category": "consciousness"
+  },
+  {
+    "name": "Holographic_Complexity_Framework",
+    "coordinates": [
+      0.91,
+      0.45,
+      0.67,
+      0.12,
+      0.83
+    ],
+    "description": "Applies holographic principle and AdS/CFT duality to understand complexity as boundary phenomenon encoding bulk information.",
+    "mechanisms": [
+      "bulk_boundary_information_mapping",
+      "holographic_entanglement_entropy",
+      "complexity_volume_conjecture",
+      "CFT_correlator_decoding",
+      "RT_surface_minimization"
+    ],
+    "category": "quantum_gravity"
+  },
+  {
+    "name": "Predictive_Processing_Unified",
+    "coordinates": [
+      0.55,
+      0.72,
+      0.41,
+      0.88,
+      0.19
+    ],
+    "description": "Hierarchical Bayesian brain model unifying perception, action, and cognition through free energy minimization and active inference.",
+    "mechanisms": [
+      "hierarchical_generative_model",
+      "prediction_error_minimization",
+      "precision_weighting_optimization",
+      "active_inference_policy",
+      "free_energy_gradient_descent"
+    ],
+    "category": "neuroscience"
+  },
+  {
+    "name": "Network_Causality_Integrator",
+    "coordinates": [
+      0.33,
+      0.56,
+      0.82,
+      0.41,
+      0.67
+    ],
+    "description": "Combines graphical causal models with complex network theory to discover and validate causal structures in interconnected systems.",
+    "mechanisms": [
+      "DAG_constraint_learning",
+      "network_motif_causal_identification",
+      "interventional_simulation_graph",
+      "d_separation_testing",
+      "causal_network_community_detection"
+    ],
+    "category": "causal_inference"
+  },
+  {
+    "name": "Topological_Phase_Framework",
+    "coordinates": [
+      0.72,
+      0.34,
+      0.58,
+      0.65,
+      0.91
+    ],
+    "description": "Classifies emergent physical phases through topological invariants and Berry phase geometry, connecting condensed matter to mathematical topology.",
+    "mechanisms": [
+      "Chern_number_classification",
+      "Berry_curvature_integration",
+      "topological_invariant_computation",
+      "edge_state_correspondence",
+      "symmetry_protection_analysis"
+    ],
+    "category": "topological_physics"
+  },
+  {
+    "name": "Axiomatic_Meta_Framework",
+    "coordinates": [
+      0.15,
+      0.89,
+      0.26,
+      0.73,
+      0.38
+    ],
+    "description": "Provides meta-axiomatic structures for comparing, translating, and unifying different formal systems across scientific domains.",
+    "mechanisms": [
+      "formal_system_comparison",
+      "axiom_translation_protocol",
+      "inter_theory_reduction_mapping",
+      "consistency_verification",
+      "categorical_unification"
+    ],
+    "category": "foundations"
+  },
+  {
+    "name": "Self_Organized_Criticality_Theory",
+    "coordinates": [
+      0.48,
+      0.21,
+      0.75,
+      0.92,
+      0.54
+    ],
+    "description": "Explains how complex systems naturally evolve toward criticality without fine-tuning, producing scale-free patterns and power-law distributions.",
+    "mechanisms": [
+      "avalanche_dynamics",
+      "power_law_emergence",
+      "slow_driving_fast_relaxation",
+      "conservative_sandpile_dynamics",
+      "critical_branching_process"
+    ],
+    "category": "complexity"
+  },
+  {
+    "name": "Quantum_Error_Correction_Framework",
+    "coordinates": [
+      0.87,
+      0.61,
+      0.13,
+      0.37,
+      0.79
+    ],
+    "description": "Protects quantum information from decoherence through redundant encoding in entangled states across multiple physical qubits.",
+    "mechanisms": [
+      "stabilizer_code_construction",
+      "syndrome_measurement_decoding",
+      "logical_qubit_encoding",
+      "fault_tolerant_gate_design",
+      "threshold_theorem_application"
+    ],
+    "category": "quantum_information"
+  },
+  {
+    "name": "Evolving_Fitness_Landscape_Theory",
+    "coordinates": [
+      0.26,
+      0.47,
+      0.94,
+      0.58,
+      0.22
+    ],
+    "description": "Models adaptation and evolutionary dynamics on rugged, time-dependent fitness landscapes with epistatic interactions and genetic constraints.",
+    "mechanisms": [
+      "rugged_landscape_navigation",
+      "epistatic_interaction_mapping",
+      "adaptive_walk_optimization",
+      "punctuated_equilibrium_dynamics",
+      "genetic_constraint_quantification"
+    ],
+    "category": "evolutionary_theory"
+  },
+  {
+    "name": "Renormalization_Group_Unification",
+    "coordinates": [
+      0.69,
+      0.15,
+      0.38,
+      0.84,
+      0.63
+    ],
+    "description": "Uses renormalization group flow to connect microscopic physics to macroscopic phenomena through systematic scale transformations.",
+    "mechanisms": [
+      "Wilson_RG_flow_integration",
+      "fixed_point_classification",
+      "universality_class_identification",
+      "effective_field_theory_construction",
+      "anomalous_dimension_computation"
+    ],
+    "category": "statistical_physics"
+  },
+  {
+    "name": "Integrated_Information_Theory_Extension",
+    "coordinates": [
+      0.82,
+      0.38,
+      0.71,
+      0.21,
+      0.48
+    ],
+    "description": "Extended IIT framework computing phi (\u03a6) for arbitrary causal architectures to identify consciousness in biological and artificial systems.",
+    "mechanisms": [
+      "phi_computation_optimization",
+      "MIP_partition_search",
+      "cause_effect_repertoire_construction",
+      "Q-shape_analysis",
+      "system_level_integration_assessment"
+    ],
+    "category": "consciousness"
+  },
+  {
+    "name": "Quantum_Field_Cognition_Bridge",
+    "coordinates": [
+      0.41,
+      0.74,
+      0.52,
+      0.46,
+      0.85
+    ],
+    "description": "Maps quantum field theoretic concepts onto cognitive architectures, treating concepts as field excitations and cognitive states as field configurations.",
+    "mechanisms": [
+      "concept_field_excitation",
+      "cognitive_vacuum_fluctuation",
+      "semantic_particle_creation",
+      "conceptual_annihilation_operator",
+      "cognitive_field_quantization"
+    ],
+    "category": "quantum_cognition"
+  },
+  {
+    "name": "Information_Geometry_Framework",
+    "coordinates": [
+      0.57,
+      0.29,
+      0.83,
+      0.69,
+      0.36
+    ],
+    "description": "Applies differential geometry to probability distributions, studying statistical manifolds with Fisher information metric for inference and learning.",
+    "mechanisms": [
+      "Fisher_metric_computation",
+      "geodesic_path_optimization",
+      "natural_gradient_descent",
+      "dual_connection_analysis",
+      "statistical_manifold_curvature"
+    ],
+    "category": "mathematics"
+  },
+  {
+    "name": "Causal_Loop_Analysis_Framework",
+    "coordinates": [
+      0.73,
+      0.86,
+      0.17,
+      0.53,
+      0.72
+    ],
+    "description": "Identifies and analyzes feedback loops in complex causal systems, detecting reinforcement and balancing dynamics across temporal scales.",
+    "mechanisms": [
+      "feedback_loop_detection",
+      "loop_polarity_assignment",
+      "causal_loop_strength_quantification",
+      "delay_structure_analysis",
+      "system_dynamics_simulation"
+    ],
+    "category": "systems_theory"
+  },
+  {
+    "name": "Thermodynamic_Computing_Framework",
+    "coordinates": [
+      0.29,
+      0.52,
+      0.64,
+      0.31,
+      0.17
+    ],
+    "description": "Reimagines computation as a thermodynamic process, optimizing energy efficiency near Landauer limit and exploiting thermal fluctuations.",
+    "mechanisms": [
+      "near_Landauer_computation",
+      "thermal_noise_utilization",
+      "energy_dissipation_optimization",
+      "reversible_computing_design",
+      "thermal_management_architecture"
+    ],
+    "category": "information_thermodynamics"
+  },
+  {
+    "name": "Quantum_Gravity_Info_Framework",
+    "coordinates": [
+      0.94,
+      0.18,
+      0.45,
+      0.76,
+      0.59
+    ],
+    "description": "Investigates quantum gravity through the lens of quantum information theory, connecting entanglement, geometry, and spacetime emergence.",
+    "mechanisms": [
+      "entanglement_wedge_reconstruction",
+      "quantum_error_correction_in_spacetime",
+      "ER_EPR_conjecture_testing",
+      "island_formula_computation",
+      "spacetime_from_entanglement"
+    ],
+    "category": "quantum_gravity"
+  },
+  {
+    "name": "Swarm_Intelligence_Framework",
+    "coordinates": [
+      0.38,
+      0.63,
+      0.29,
+      0.87,
+      0.44
+    ],
+    "description": "Models collective behavior and distributed problem-solving in decentralized agent systems with local interactions and emergent global intelligence.",
+    "mechanisms": [
+      "stigmergic_communication",
+      "distributed_decision_making",
+      "emergent_task_allocation",
+      "collective_navigation_optimization",
+      "swarm_resilience_analysis"
+    ],
+    "category": "complex_systems"
+  },
+  {
+    "name": "Tensor_Network_Physics",
+    "coordinates": [
+      0.66,
+      0.41,
+      0.92,
+      0.14,
+      0.77
+    ],
+    "description": "Represents quantum many-body states and processes as tensor networks, enabling efficient classical simulation and theoretical analysis.",
+    "mechanisms": [
+      "MPS_representation",
+      "PEPS_tensor_contraction",
+      "MERA_scale_invariance",
+      "tensor_network_renormalization",
+      "entanglement_area_law_encoding"
+    ],
+    "category": "quantum_information"
+  },
+  {
+    "name": "Consciousness_Causal_Framework",
+    "coordinates": [
+      0.84,
+      0.55,
+      0.36,
+      0.62,
+      0.28
+    ],
+    "description": "Combines causal inference with consciousness studies to identify necessary and sufficient causal structures for phenomenal experience.",
+    "mechanisms": [
+      "neural_causal_graph_construction",
+      "consciousness_causal_mechanism_identification",
+      "interventional_consciousness_test",
+      "causal_marker_detection",
+      "counterfactual_consciousness_assessment"
+    ],
+    "category": "consciousness"
+  },
+  {
+    "name": "Game_Theoretic_Emergence",
+    "coordinates": [
+      0.21,
+      0.77,
+      0.48,
+      0.35,
+      0.93
+    ],
+    "description": "Studies how strategic interactions among agents produce emergent social, economic, and biological patterns through evolutionary game dynamics.",
+    "mechanisms": [
+      "evolutionary_stable_strategy",
+      "replicator_dynamics",
+      "Nash_equilibrium_computation",
+      "mechanism_design_optimization",
+      "cooperative_strategy_evolution"
+    ],
+    "category": "game_theory"
+  },
+  {
+    "name": "Quantum_Machine_Learning_Bridge",
+    "coordinates": [
+      0.53,
+      0.32,
+      0.79,
+      0.48,
+      0.66
+    ],
+    "description": "Integrates quantum computing with machine learning, developing quantum-enhanced algorithms for classification, optimization, and generative modeling.",
+    "mechanisms": [
+      "quantum_kernel_construction",
+      "variational_circuit_training",
+      "quantum_data_encoding",
+      "entanglement_based_feature_mapping",
+      "quantum_annealing_optimization"
+    ],
+    "category": "quantum_computing"
+  },
+  {
+    "name": "Symmetry_Breaking_Framework",
+    "coordinates": [
+      0.76,
+      0.24,
+      0.57,
+      0.81,
+      0.43
+    ],
+    "description": "Analyzes how spontaneous symmetry breaking creates ordered phases, Goldstone modes, and emergent physical laws from symmetric foundations.",
+    "mechanisms": [
+      "order_parameter_dynamics",
+      "Goldstone_mode_excitation",
+      "Landau_theory_expansion",
+      "symmetry_restoration_analysis",
+      "critical_exponent_determination"
+    ],
+    "category": "physics"
+  },
+  {
+    "name": "Bayesian_Causal_Discovery",
+    "coordinates": [
+      0.44,
+      0.68,
+      0.31,
+      0.57,
+      0.82
+    ],
+    "description": "Bayesian approach to learning causal graph structures from observational data, scoring models by posterior probability and marginal likelihood.",
+    "mechanisms": [
+      "Bayesian_structure_scoring",
+      "MCMC_graph_search",
+      "posterior_edge_probability",
+      "Bayesian_network_parameter_learning",
+      "structure_prior_specification"
+    ],
+    "category": "causal_inference"
+  },
+  {
+    "name": "Complex_Adaptive_System_Framework",
+    "coordinates": [
+      0.37,
+      0.81,
+      0.66,
+      0.23,
+      0.51
+    ],
+    "description": "Models systems of interacting adaptive agents that co-evolve with their environment, producing emergent behavior through local adaptation rules.",
+    "mechanisms": [
+      "agent_based_simulation",
+      "adaptive_strategy_update",
+      "environmental_feedback_integration",
+      "emergent_pattern_recognition",
+      "coevolutionary_dynamics"
+    ],
+    "category": "complexity"
+  },
+  {
+    "name": "Quantum_Decomposition_Theory",
+    "coordinates": [
+      0.89,
+      0.43,
+      0.24,
+      0.69,
+      0.35
+    ],
+    "description": "Studies how quantum systems decompose into classical and quantum subsystems, characterizing quantum-to-classical transitions and quantum correlations.",
+    "mechanisms": [
+      "decoherence_process_modeling",
+      "quantum_markovianity_testing",
+      "entanglement_sudden_death",
+      "classicality_threshold_identification",
+      "pointer_state_selection"
+    ],
+    "category": "quantum_foundations"
+  },
+  {
+    "name": "Free_Energy_Minimization_Framework",
+    "coordinates": [
+      0.61,
+      0.57,
+      0.43,
+      0.94,
+      0.68
+    ],
+    "description": "Extends Friston's free energy principle to general self-organizing systems, treating existence as minimization of variational free energy.",
+    "mechanisms": [
+      "variational_free_energy_bound",
+      "generative_model_update",
+      "perceptual_inference",
+      "active_inference_control",
+      "model_evidence_accumulation"
+    ],
+    "category": "neuroscience"
+  },
+  {
+    "name": "Homotopy_Type_Theory_Bridge",
+    "coordinates": [
+      0.12,
+      0.95,
+      0.68,
+      0.42,
+      0.16
+    ],
+    "description": "Connects homotopy type theory with physical theories, providing constructive foundations for geometric and topological physics.",
+    "mechanisms": [
+      "homotopy_level_computation",
+      "univalent_foundations_encoding",
+      "higher_inductive_type_construction",
+      "synthetic_homotopy_theory",
+      "type_theoretic_geometry"
+    ],
+    "category": "foundations"
+  },
+  {
+    "name": "Quantum_Cryptography_Framework",
+    "coordinates": [
+      0.83,
+      0.26,
+      0.85,
+      0.33,
+      0.57
+    ],
+    "description": "Develops information-theoretically secure communication protocols exploiting quantum mechanical properties like no-cloning and entanglement.",
+    "mechanisms": [
+      "BB84_protocol_implementation",
+      "entanglement_based_QKD",
+      "device_independent_certification",
+      "quantum_repeater_architecture",
+      "information_theoretic_security_proof"
+    ],
+    "category": "quantum_information"
+  },
+  {
+    "name": "Nonlinear_Dynamics_Framework",
+    "coordinates": [
+      0.46,
+      0.79,
+      0.19,
+      0.66,
+      0.94
+    ],
+    "description": "Comprehensive framework for analyzing nonlinear dynamical systems including chaos, bifurcations, strange attractors, and bifurcation diagrams.",
+    "mechanisms": [
+      "Lyapunov_exponent_computation",
+      "Poincare_section_analysis",
+      "bifurcation_diagram_generation",
+      "strange_attractor_reconstruction",
+      "delay_embedding_theorem"
+    ],
+    "category": "dynamical_systems"
+  },
+  {
+    "name": "Categorical_Quantum_Mechanics",
+    "coordinates": [
+      0.19,
+      0.42,
+      0.96,
+      0.51,
+      0.73
+    ],
+    "description": "Reformulates quantum mechanics in the language of category theory, using dagger compact closed categories and monoidal categories.",
+    "mechanisms": [
+      "dagger_compact_category_formalism",
+      "string_diagram_calculus",
+      "categorical_quantum_protocol",
+      "monoidal_functor_application",
+      "categorical_entanglement_classification"
+    ],
+    "category": "foundations"
+  },
+  {
+    "name": "Ecological_Network_Dynamics",
+    "coordinates": [
+      0.52,
+      0.14,
+      0.72,
+      0.88,
+      0.39
+    ],
+    "description": "Models species interactions, food web stability, and ecosystem resilience through network analysis and dynamical systems theory.",
+    "mechanisms": [
+      "food_web_construction",
+      "trophic_cascade_analysis",
+      "ecosystem_stability_assessment",
+      "biodiversity_complexity_relation",
+      "keystone_species_identification"
+    ],
+    "category": "ecology"
+  },
+  {
+    "name": "Quantum_Sensing_Framework",
+    "coordinates": [
+      0.75,
+      0.88,
+      0.42,
+      0.27,
+      0.61
+    ],
+    "description": "Develops quantum-enhanced sensing protocols achieving measurement precision beyond classical limits using entanglement and squeezed states.",
+    "mechanisms": [
+      "quantum_fisher_information_optimization",
+      "squeezed_light_generation",
+      "NOON_state_sensing",
+      "quantum_illumination_protocol",
+      "Heisenberg_limit_approach"
+    ],
+    "category": "quantum_information"
+  },
+  {
+    "name": "Epistemic_Logic_Framework",
+    "coordinates": [
+      0.28,
+      0.65,
+      0.53,
+      0.44,
+      0.12
+    ],
+    "description": "Formalizes knowledge, belief, and information flow among agents using modal logic systems with common knowledge and distributed knowledge operators.",
+    "mechanisms": [
+      "knowledge_operator_semantics",
+      "common_knowledge_fixpoint",
+      "belief_revision_protocol",
+      "epistemic_model_checking",
+      "dynamic_epistemic_update"
+    ],
+    "category": "logic"
+  },
+  {
+    "name": "Reaction_Diffusion_Pattern_Framework",
+    "coordinates": [
+      0.64,
+      0.36,
+      0.87,
+      0.15,
+      0.86
+    ],
+    "description": "Analyzes Turing-type pattern formation in biological, chemical, and physical systems through activator-inhibitor reaction-diffusion dynamics.",
+    "mechanisms": [
+      "Turing_instability_analysis",
+      "pattern_selection_theory",
+      "amplitude_equation_derivation",
+      "morphogen_gradient_modeling",
+      "bifurcation_analysis"
+    ],
+    "category": "pattern_formation"
+  },
+  {
+    "name": "Quantum_Many_Body_Framework",
+    "coordinates": [
+      0.88,
+      0.49,
+      0.28,
+      0.73,
+      0.47
+    ],
+    "description": "Studies emergent phenomena in quantum many-body systems including quantum phase transitions, topological order, and many-body localization.",
+    "mechanisms": [
+      "many_body_entanglement_scaling",
+      "quantum_phase_transition_characterization",
+      "topological_order_detection",
+      "many_body_localization_analysis",
+      "quantum_monte_carlo_simulation"
+    ],
+    "category": "condensed_matter"
+  },
+  {
+    "name": "Algorithmic_Information_Framework",
+    "coordinates": [
+      0.17,
+      0.93,
+      0.61,
+      0.39,
+      0.24
+    ],
+    "description": "Based on algorithmic information theory and Kolmogorov complexity, providing objective measures of randomness, structure, and information content.",
+    "mechanisms": [
+      "Kolmogorov_complexity_approximation",
+      "algorithmic_probability_estimation",
+      "Levin_search_optimization",
+      "Martin_Lof_randomness_testing",
+      "algorithmic_mutual_information"
+    ],
+    "category": "information_theory"
+  },
+  {
+    "name": "Socio_Technical_System_Framework",
+    "coordinates": [
+      0.43,
+      0.71,
+      0.35,
+      0.82,
+      0.58
+    ],
+    "description": "Analyzes complex interactions between human social systems and technological infrastructure for designing resilient, adaptive socio-technical solutions.",
+    "mechanisms": [
+      "human_technology_interaction_modeling",
+      "social_network_diffusion_analysis",
+      "infrastructure_resilience_assessment",
+      "adaptive_governance_design",
+      "technology_adoption_dynamics"
+    ],
+    "category": "systems_engineering"
+  },
+  {
+    "name": "Quantum_Trajectory_Framework",
+    "coordinates": [
+      0.79,
+      0.27,
+      0.74,
+      0.56,
+      0.32
+    ],
+    "description": "Individual quantum state trajectories in continuous measurement, connecting quantum measurement theory to open quantum system dynamics.",
+    "mechanisms": [
+      "stochastic_master_equation",
+      "quantum_jump_trajectory",
+      "quantum_state_diffusion",
+      "continuous_measurement_record",
+      "conditional_state_evolution"
+    ],
+    "category": "quantum_foundations"
+  },
+  {
+    "name": "Morphological_Computation_Framework",
+    "coordinates": [
+      0.35,
+      0.84,
+      0.46,
+      0.19,
+      0.75
+    ],
+    "description": "Investigates how physical body morphology contributes to computation and control in biological and robotic systems.",
+    "mechanisms": [
+      "body_morphology_optimization",
+      "embodied_computation_analysis",
+      "sensorimotor_coordination",
+      "mechanical_computation_utilization",
+      "morphological_adaptation"
+    ],
+    "category": "robotics"
+  },
+  {
+    "name": "Quantum_Estimation_Framework",
+    "coordinates": [
+      0.92,
+      0.53,
+      0.15,
+      0.61,
+      0.89
+    ],
+    "description": "Optimal quantum parameter estimation theory achieving Heisenberg-limited precision through carefully designed quantum probes and measurements.",
+    "mechanisms": [
+      "quantum_Cramer_Rao_bound_computation",
+      "optimal_probe_state_design",
+      "adaptive_measurement_strategy",
+      "multiparameter_estimation_theory",
+      "Fisher_information_matrix_quantum"
+    ],
+    "category": "quantum_information"
+  },
+  {
+    "name": "Catastrophe_Theory_Framework",
+    "coordinates": [
+      0.51,
+      0.18,
+      0.63,
+      0.47,
+      0.21
+    ],
+    "description": "Mathematical theory of sudden discontinuous changes in continuous systems, classifying bifurcation types and threshold behaviors.",
+    "mechanisms": [
+      "fold_catastrophe_analysis",
+      "cusp_bifurcation_detection",
+      "potential_function_classification",
+      "hysteresis_modeling",
+      "structural_stability_assessment"
+    ],
+    "category": "mathematics"
+  },
+  {
+    "name": "Quantum_Walk_Framework",
+    "coordinates": [
+      0.68,
+      0.45,
+      0.81,
+      0.34,
+      0.52
+    ],
+    "description": "Quantum analog of classical random walks exhibiting ballistic spreading, topological phases, and universal computation capabilities.",
+    "mechanisms": [
+      "discrete_time_quantum_walk",
+      "continuous_time_quantum_walk",
+      "quantum_walk_search_algorithm",
+      "topological_quantum_walk",
+      "quantum_walk_simulation"
+    ],
+    "category": "quantum_computing"
+  },
+  {
+    "name": "Information_Bottleneck_Framework",
+    "coordinates": [
+      0.56,
+      0.62,
+      0.39,
+      0.85,
+      0.46
+    ],
+    "description": "Optimal information-theoretic framework for finding compressed representations that preserve relevant information about a target variable.",
+    "mechanisms": [
+      "IB_optimization_algorithm",
+      "deterministic_IB_extension",
+      "sequential_IB_for_deep_learning",
+      "IB_curves_computation",
+      "relevant_information_extraction"
+    ],
+    "category": "machine_learning"
+  },
+  {
+    "name": "Quantum_Biology_Framework",
+    "coordinates": [
+      0.81,
+      0.31,
+      0.55,
+      0.43,
+      0.97
+    ],
+    "description": "Explores quantum coherence and quantum effects in biological systems including photosynthesis, avian magnetoreception, and enzyme catalysis.",
+    "mechanisms": [
+      "exciton_coherence_in_photosynthesis",
+      "radical_pair_mechanism",
+      "quantum_tunneling_in_enzymes",
+      "vibronic_coupling_analysis",
+      "decoherence_timescale_estimation"
+    ],
+    "category": "biophysics"
+  },
+  {
+    "name": "Distributed_Ledger_Framework",
+    "coordinates": [
+      0.24,
+      0.86,
+      0.47,
+      0.72,
+      0.33
+    ],
+    "description": "Applies distributed ledger and blockchain technology to create tamper-proof records of scientific axioms and computational provenance.",
+    "mechanisms": [
+      "hash_chain_construction",
+      "consensus_mechanism_design",
+      "cryptographic_immobilization",
+      "merkle_tree_verification",
+      "decentralized_validation"
+    ],
+    "category": "infrastructure"
+  },
+  {
+    "name": "Cognitive_Radical_Embedding_Framework",
+    "coordinates": [
+      0.42,
+      0.39,
+      0.88,
+      0.54,
+      0.71
+    ],
+    "description": "Embeds cognitive representations in high-dimensional continuous spaces using radical embedding theory to capture conceptual similarity and relational structure.",
+    "mechanisms": [
+      "radical_embedding_construction",
+      "conceptual_similarity_mapping",
+      "relational_structure_encoding",
+      "dimensional_reduction_analysis",
+      "semantic_field_interpolation"
+    ],
+    "category": "cognitive_science"
+  },
+  {
+    "name": "Quantum_Contextuality_Framework",
+    "coordinates": [
+      0.71,
+      0.58,
+      0.22,
+      0.79,
+      0.65
+    ],
+    "description": "Formalizes quantum contextuality through sheaf-theoretic and graph-theoretic approaches, characterizing measurement context-dependence beyond nonlocality.",
+    "mechanisms": [
+      "Kochen_Specker_set_construction",
+      "contextuality_via_sheaf_theory",
+      "noncontextuality_inequality_violation",
+      "measurement_context_graph",
+      "probabilistic_contextuality_quantification"
+    ],
+    "category": "quantum_foundations"
+  }
+]

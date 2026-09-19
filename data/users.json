@@ -1,0 +1,54 @@
+{
+ "mikey": {
+  "email": "mikey@earth.org",
+  "salt": "91a8dcbb9e4ae00f201992d820a0c14f",
+  "pwd_hash": "723c5e6b805d46c4e9ba53b643a9931080c24c55881167584e8f32c2c4a350f2",
+  "api_keys": [
+   {
+    "key_hash": "852ac807798e534fbc478ee1cf2539e6ad732b0c0c65eae81f810e90e89910d4",
+    "name": "default",
+    "created": "2026-07-05T00:27:47Z",
+    "last_used": null,
+    "is_active": true
+   }
+  ],
+  "role": "user",
+  "permissions": [
+   "axioms:read",
+   "axioms:write",
+   "axioms:delete",
+   "ledger:read",
+   "ledger:share",
+   "ledger:like",
+   "profile:edit",
+   "profile:view",
+   "files:read",
+   "files:write",
+   "files:delete",
+   "audit:own"
+  ],
+  "display_name": "mikey",
+  "bio": "",
+  "organization": "",
+  "title": "",
+  "website": "",
+  "orcid_id": "",
+  "research_interests": [],
+  "skills": [],
+  "github_url": "",
+  "linkedin_url": "",
+  "twitter_url": "",
+  "profile_visibility": "public",
+  "theme_preference": "system",
+  "language": "en",
+  "plan_type": "free",
+  "total_axioms_generated": 0,
+  "total_axioms_shared": 0,
+  "reputation_score": 0.0,
+  "created": "2026-07-05T00:27:47Z",
+  "updated_at": "2026-07-05T00:27:47Z",
+  "last_login_at": null,
+  "generations": 0,
+  "sessions": []
+ }
+}

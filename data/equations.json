@@ -1,0 +1,1283 @@
+[
+  {
+    "id": 1,
+    "title": "Wheeler-DeWitt Equation",
+    "equation": "H\u03a8 = 0",
+    "description": "The quantum wave function of the universe satisfying the Hamiltonian constraint in canonical quantum gravity",
+    "cluster": "Quantum Gravity"
+  },
+  {
+    "id": 2,
+    "title": "Einstein-Hilbert Action",
+    "equation": "S = (1/16\u03c0G) \u222b d\u2074x \u221a(-g) R",
+    "description": "The gravitational action from which Einstein field equations are derived via variational principle",
+    "cluster": "Quantum Gravity"
+  },
+  {
+    "id": 3,
+    "title": "Linearized Gravity Metric Perturbation",
+    "equation": "g_\u03bc\u03bd = \u03b7_\u03bc\u03bd + h_\u03bc\u03bd where |h_\u03bc\u03bd| << 1",
+    "description": "Weak-field approximation of general relativity for perturbative quantization",
+    "cluster": "Quantum Gravity"
+  },
+  {
+    "id": 4,
+    "title": "GUP-Modified Heisenberg Uncertainty",
+    "equation": "\u0394x \u0394p \u2265 \u210f/2 (1 + \u03b2(\u0394p)\u00b2/M_p\u00b2c\u00b2)",
+    "description": "Generalized uncertainty principle incorporating minimal length scale from quantum gravity",
+    "cluster": "Quantum Gravity"
+  },
+  {
+    "id": 5,
+    "title": "Hawking Temperature",
+    "equation": "T_H = \u210fc\u00b3/(8\u03c0GMk_B)",
+    "description": "Black hole thermodynamic temperature derived via quantum field theory in curved spacetime",
+    "cluster": "Quantum Gravity"
+  },
+  {
+    "id": 6,
+    "title": "Bekenstein-Hawking Entropy",
+    "equation": "S_BH = A k_B c\u00b3/(4G\u210f)",
+    "description": "Black hole entropy proportional to event horizon area, suggesting holographic principle",
+    "cluster": "Quantum Gravity"
+  },
+  {
+    "id": 7,
+    "title": "Gibbons-Hawking Boundary Term",
+    "equation": "S_GH = (1/8\u03c0G) \u222e d\u00b3x \u221a(h) K",
+    "description": "Boundary contribution to gravitational action ensuring well-posed variational problem",
+    "cluster": "Quantum Gravity"
+  },
+  {
+    "id": 8,
+    "title": "Ashtekar Connection Variable",
+    "equation": "A_\u03bc^i = \u0393_\u03bc^i + K_\u03bc^i",
+    "description": "Self-dual connection combining spin connection and extrinsic curvature in loop quantum gravity",
+    "cluster": "Quantum Gravity"
+  },
+  {
+    "id": 9,
+    "title": "Area Operator Spectrum",
+    "equation": "\u00c2 = 8\u03c0\u03b3\u2113_P\u00b2 \u03a3_i \u221a(j_i(j_i+1))",
+    "description": "Discrete area eigenvalues from loop quantum gravity predicting quantized geometry",
+    "cluster": "Quantum Gravity"
+  },
+  {
+    "id": 10,
+    "title": "Entropy-Area Bound",
+    "equation": "S \u2264 A/(4\u2113_P\u00b2)",
+    "description": "Bousso bound on entropy within a lightsheet, generalizing holographic principle",
+    "cluster": "Quantum Gravity"
+  },
+  {
+    "id": 11,
+    "title": "Ricci Flow in Quantum Gravity",
+    "equation": "\u2202g_\u03bc\u03bd/\u2202t = -2R_\u03bc\u03bd",
+    "description": "Hamilton's Ricci flow applied to renormalization group evolution of spacetime metric",
+    "cluster": "Quantum Gravity"
+  },
+  {
+    "id": 12,
+    "title": "Non-Commutative Spacetime Relation",
+    "equation": "[x^\u03bc, x^\u03bd] = i\u03b8^\u03bc\u03bd",
+    "description": "Canonical non-commutativity of spacetime coordinates in non-commutative geometry approach",
+    "cluster": "Quantum Gravity"
+  },
+  {
+    "id": 13,
+    "title": "Shannon Entropy",
+    "equation": "H(X) = -\u03a3_x p(x) log\u2082 p(x)",
+    "description": "Foundational measure of information content and uncertainty in a discrete probability distribution",
+    "cluster": "Information Theory"
+  },
+  {
+    "id": 14,
+    "title": "Joint Entropy",
+    "equation": "H(X,Y) = -\u03a3_{x,y} p(x,y) log\u2082 p(x,y)",
+    "description": "Combined uncertainty of two random variables considered jointly",
+    "cluster": "Information Theory"
+  },
+  {
+    "id": 15,
+    "title": "Conditional Entropy",
+    "equation": "H(Y|X) = -\u03a3_{x,y} p(x,y) log\u2082 p(y|x)",
+    "description": "Remaining uncertainty in Y given knowledge of X",
+    "cluster": "Information Theory"
+  },
+  {
+    "id": 16,
+    "title": "Mutual Information",
+    "equation": "I(X;Y) = \u03a3_{x,y} p(x,y) log\u2082 [p(x,y)/(p(x)p(y))]",
+    "description": "Information shared between two random variables, measuring statistical dependence",
+    "cluster": "Information Theory"
+  },
+  {
+    "id": 17,
+    "title": "Kullback-Leibler Divergence",
+    "equation": "D_KL(P||Q) = \u03a3_x p(x) log\u2082 [p(x)/q(x)]",
+    "description": "Asymmetric measure of information loss when Q approximates P",
+    "cluster": "Information Theory"
+  },
+  {
+    "id": 18,
+    "title": "Channel Capacity Theorem",
+    "equation": "C = max_{p(x)} I(X;Y)",
+    "description": "Shannon's channel coding theorem defining maximum reliable communication rate",
+    "cluster": "Information Theory"
+  },
+  {
+    "id": 19,
+    "title": "von Neumann Entropy",
+    "equation": "S(\u03c1) = -Tr(\u03c1 log\u2082 \u03c1)",
+    "description": "Quantum generalization of Shannon entropy for density matrices",
+    "cluster": "Information Theory"
+  },
+  {
+    "id": 20,
+    "title": "Quantum Relative Entropy",
+    "equation": "S(\u03c1||\u03c3) = Tr(\u03c1 log \u03c1) - Tr(\u03c1 log \u03c3)",
+    "description": "Quantum analogue of KL divergence measuring distinguishability of quantum states",
+    "cluster": "Information Theory"
+  },
+  {
+    "id": 21,
+    "title": "Holevo Bound",
+    "equation": "\u03c7(S) = S(\u03c1) - \u03a3_i p_i S(\u03c1_i)",
+    "description": "Upper bound on accessible classical information from quantum measurements",
+    "cluster": "Information Theory"
+  },
+  {
+    "id": 22,
+    "title": "Coherent Information",
+    "equation": "I_c(\u03c1, N) = S(N(\u03c1)) - S((I\u2297N)(|\u03c8\u27e9\u27e8\u03c8|))",
+    "description": "Quantum channel capacity measure for quantum error correction",
+    "cluster": "Information Theory"
+  },
+  {
+    "id": 23,
+    "title": "Fisher Information Matrix",
+    "equation": "I(\u03b8) = E[ (\u2202/\u2202\u03b8 log f(X;\u03b8))\u00b2 ]",
+    "description": "Information geometry metric encoding sensitivity of probability distribution to parameters",
+    "cluster": "Information Theory"
+  },
+  {
+    "id": 24,
+    "title": "Information Bottleneck Functional",
+    "equation": "L[T;X,Y] = I(T;X) - \u03b2 I(T;Y)",
+    "description": "Optimal tradeoff between compression and prediction in representation learning",
+    "cluster": "Information Theory"
+  },
+  {
+    "id": 25,
+    "title": "Logistic Map",
+    "equation": "x_{n+1} = r x_n (1 - x_n)",
+    "description": "Canonical model of chaotic dynamics exhibiting period-doubling route to chaos",
+    "cluster": "Complex Systems"
+  },
+  {
+    "id": 26,
+    "title": "Lyapunov Exponent",
+    "equation": "\u03bb = lim_{n\u2192\u221e} (1/n) \u03a3_{i=0}^{n-1} ln |f'(x_i)|",
+    "description": "Rate of exponential divergence of nearby trajectories in dynamical systems",
+    "cluster": "Complex Systems"
+  },
+  {
+    "id": 27,
+    "title": "Fisher-KPP Equation",
+    "equation": "\u2202u/\u2202t = D \u2202\u00b2u/\u2202x\u00b2 + ru(1 - u/K)",
+    "description": "Reaction-diffusion equation modeling biological invasion and front propagation",
+    "cluster": "Complex Systems"
+  },
+  {
+    "id": 28,
+    "title": "Kuramoto Model",
+    "equation": "d\u03b8_i/dt = \u03c9_i + (K/N) \u03a3_j sin(\u03b8_j - \u03b8_i)",
+    "description": "Coupled oscillator model for synchronization transition in interacting populations",
+    "cluster": "Complex Systems"
+  },
+  {
+    "id": 29,
+    "title": "Ising Hamiltonian",
+    "equation": "H = -J \u03a3_{<ij>} s_i s_j - h \u03a3_i s_i",
+    "description": "Lattice spin model exhibiting phase transition between ordered and disordered phases",
+    "cluster": "Complex Systems"
+  },
+  {
+    "id": 30,
+    "title": "Mean-Field Susceptibility",
+    "equation": "\u03c7 = 1/(T - T_c) for T > T_c",
+    "description": "Divergent susceptibility at critical point in mean-field theory approximation",
+    "cluster": "Complex Systems"
+  },
+  {
+    "id": 31,
+    "title": "Power-Law Degree Distribution",
+    "equation": "P(k) ~ k^{-\u03b3}",
+    "description": "Scale-free network property with heavy-tailed degree distribution",
+    "cluster": "Complex Systems"
+  },
+  {
+    "id": 32,
+    "title": "Clustering Coefficient",
+    "equation": "C_i = 2e_i / [k_i(k_i - 1)]",
+    "description": "Local connectivity measure quantifying transitivity in network topology",
+    "cluster": "Complex Systems"
+  },
+  {
+    "id": 33,
+    "title": "Renormalization Group Flow",
+    "equation": "dg/dl = \u03b2(g) where \u03b2(g) describes coupling evolution",
+    "description": "Systematic coarse-graining procedure revealing universal behavior near criticality",
+    "cluster": "Complex Systems"
+  },
+  {
+    "id": 34,
+    "title": "Fokker-Planck Equation",
+    "equation": "\u2202P/\u2202t = -\u2202/\u2202x [A(x)P] + (1/2)\u2202\u00b2/\u2202x\u00b2 [B(x)P]",
+    "description": "Partial differential equation governing time evolution of probability distributions",
+    "cluster": "Complex Systems"
+  },
+  {
+    "id": 35,
+    "title": "Cellular Automaton Rule 110",
+    "equation": "s_i^{t+1} = f(s_{i-1}^t, s_i^t, s_{i+1}^t)",
+    "description": "Elementary cellular automaton exhibiting computational universality",
+    "cluster": "Complex Systems"
+  },
+  {
+    "id": 36,
+    "title": "Boltzmann Distribution",
+    "equation": "p_i = exp(-E_i/k_B T) / Z",
+    "description": "Probability of microstate i in thermal equilibrium at temperature T",
+    "cluster": "Complex Systems"
+  },
+  {
+    "id": 37,
+    "title": "Integrated Information (Phi)",
+    "equation": "\u03a6 = min_{MIP} I(MIP; X\u20d7_M)",
+    "description": "Tononi's measure of information integration beyond parts in a system",
+    "cluster": "Consciousness Studies"
+  },
+  {
+    "id": 38,
+    "title": "Effective Information",
+    "equation": "ei(T) = I(T\u2080; T\u2081) / (H_max)",
+    "description": "Causal information generated by system transitioning from maximum entropy state",
+    "cluster": "Consciousness Studies"
+  },
+  {
+    "id": 39,
+    "title": "Global Workspace Access",
+    "equation": "\u0394G = \u03a3_i w_i \u00b7 I(X_i; GW)",
+    "description": "Competitive activation measure determining which information enters global workspace",
+    "cluster": "Consciousness Studies"
+  },
+  {
+    "id": 40,
+    "title": "Predictive Coding Error",
+    "equation": "\u03b5 = x - \u0177(\u03b8)",
+    "description": "Prediction error signal in hierarchical Bayesian brain models of perception",
+    "cluster": "Consciousness Studies"
+  },
+  {
+    "id": 41,
+    "title": "Free Energy Functional",
+    "equation": "F = E_q[ln q(z) - ln p(x,z)]",
+    "description": "Variational free energy minimized by brain through active inference",
+    "cluster": "Consciousness Studies"
+  },
+  {
+    "id": 42,
+    "title": "Neural Complexity",
+    "equation": "C_N(X) = \u03a3_k H(X_k) - H(X)",
+    "description": "Measures balance between integration and segregation in neural dynamics",
+    "cluster": "Consciousness Studies"
+  },
+  {
+    "id": 43,
+    "title": "Mutual Information Complexity",
+    "equation": "C_MI = \u03a3_{k=1}^{n-1} [I(S_k; S_{rest}|S_{<k})]",
+    "description": "Information-theoretic complexity measuring multi-scale information structure",
+    "cluster": "Consciousness Studies"
+  },
+  {
+    "id": 44,
+    "title": "Causal Density",
+    "equation": "cd(X) = (1/n) \u03a3_i \u03a3_{j\u2260i} C_{i\u2192j}",
+    "description": "Average causal influence between all element pairs in a dynamical system",
+    "cluster": "Consciousness Studies"
+  },
+  {
+    "id": 45,
+    "title": "Thermodynamic Cost of Computation",
+    "equation": "E \u2265 k_B T ln 2 \u00b7 I",
+    "description": "Landauer bound on minimum energy required for information processing",
+    "cluster": "Consciousness Studies"
+  },
+  {
+    "id": 46,
+    "title": "Consciousness Threshold Function",
+    "equation": "C(x) = \u03c3(\u03a6 - \u03a6_c) \u00b7 \u03a0(S; X)",
+    "description": "Sigmoid threshold model for presence of consciousness based on integration",
+    "cluster": "Consciousness Studies"
+  },
+  {
+    "id": 47,
+    "title": "Attention Weight Update",
+    "equation": "\u03b1_{t+1} = softmax((1-\u03b2)\u03b1_t + \u03b2 E_t)",
+    "description": "Temporal attention allocation dynamics combining persistence and novelty",
+    "cluster": "Consciousness Studies"
+  },
+  {
+    "id": 48,
+    "title": "Phenomenal Access Ratio",
+    "equation": "R_PA = |Access(X) - Phenomenal(X)| / |Access(X) + Phenomenal(X)|",
+    "description": "Dissociation measure between access and phenomenal consciousness",
+    "cluster": "Consciousness Studies"
+  },
+  {
+    "id": 49,
+    "title": "Pearl's Do-Calculus Rule 1",
+    "equation": "P(Y|do(X), Z) = P(Y|X, Z) if X \u22a5\u22a5 Y|Z in G_X\u0304",
+    "description": "Interventional probability reduction when causal path is blocked by conditioning",
+    "cluster": "Causal Inference"
+  },
+  {
+    "id": 50,
+    "title": "Structural Causal Equation",
+    "equation": "Y_i = f_i(PA_i, U_i)",
+    "description": "Structural equation model relating each variable to its direct causes and noise",
+    "cluster": "Causal Inference"
+  },
+  {
+    "id": 51,
+    "title": "Potential Outcome Framework",
+    "equation": "ATE = E[Y(1)] - E[Y(0)]",
+    "description": "Average treatment effect comparing counterfactual outcomes under intervention",
+    "cluster": "Causal Inference"
+  },
+  {
+    "id": 52,
+    "title": "Backdoor Adjustment Formula",
+    "equation": "P(Y|do(X)) = \u03a3_z P(Y|X,Z=z) P(Z=z)",
+    "description": "Covariate adjustment formula valid when backdoor criterion is satisfied",
+    "cluster": "Causal Inference"
+  },
+  {
+    "id": 53,
+    "title": "Front-Door Criterion Estimand",
+    "equation": "P(Y|do(X)) = \u03a3_z P(Z=z|X) \u03a3_x P(Y|X=x,Z=z) P(X=x)",
+    "description": "Identification formula using mediating variable satisfying front-door criterion",
+    "cluster": "Causal Inference"
+  },
+  {
+    "id": 54,
+    "title": "d-Separation Condition",
+    "equation": "X \u22a5\u22a5 Y | Z in G",
+    "description": "Graphical criterion for conditional independence in directed acyclic graphs",
+    "cluster": "Causal Inference"
+  },
+  {
+    "id": 55,
+    "title": "Transfer Entropy",
+    "equation": "T_{X\u2192Y} = \u03a3 p(y_{t+1}, y_t, x_t) log[p(y_{t+1}|y_t,x_t)/p(y_{t+1}|y_t)]",
+    "description": "Model-free measure of directed information flow between time series",
+    "cluster": "Causal Inference"
+  },
+  {
+    "id": 56,
+    "title": "Granger Causality Test",
+    "equation": "F = [RSS_r - RSS_u]/p / [RSS_u/(n-k)]",
+    "description": "Statistical test for predictive causality in autoregressive models",
+    "cluster": "Causal Inference"
+  },
+  {
+    "id": 57,
+    "title": "Causal Mediation Effect",
+    "equation": "NDE = E[Y(1,M(0)) - Y(0,M(0))]",
+    "description": "Natural direct effect decomposing total causal effect into direct and indirect paths",
+    "cluster": "Causal Inference"
+  },
+  {
+    "id": 58,
+    "title": "Instrumental Variable Estimator",
+    "equation": "\u03b2_IV = Cov(Y,Z)/Cov(X,Z)",
+    "description": "Causal effect estimator using instrument satisfying relevance and exclusion restriction",
+    "cluster": "Causal Inference"
+  },
+  {
+    "id": 59,
+    "title": "Propensity Score",
+    "equation": "e(X) = P(T=1|X)",
+    "description": "Conditional probability of treatment given covariates for matching-based estimation",
+    "cluster": "Causal Inference"
+  },
+  {
+    "id": 60,
+    "title": "Hill Causality Criteria",
+    "equation": "W = \u03a0_i w_i \u00b7 C_i(subject, exposure, outcome)",
+    "description": "Weighted Bradford Hill criteria for epidemiological causal assessment",
+    "cluster": "Causal Inference"
+  },
+  {
+    "id": 61,
+    "title": "First Law",
+    "equation": "dU = \u03b4Q - \u03b4W",
+    "description": "Energy conservation relating internal energy change to heat and work",
+    "cluster": "Thermodynamics"
+  },
+  {
+    "id": 62,
+    "title": "Second Law (Clausius)",
+    "equation": "dS \u2265 \u03b4Q/T",
+    "description": "Entropy never decreases for irreversible processes in isolated systems",
+    "cluster": "Thermodynamics"
+  },
+  {
+    "id": 63,
+    "title": "Gibbs Free Energy",
+    "equation": "G = H - TS",
+    "description": "Thermodynamic potential determining spontaneity at constant temperature and pressure",
+    "cluster": "Thermodynamics"
+  },
+  {
+    "id": 64,
+    "title": "Helmholtz Free Energy",
+    "equation": "F = U - TS",
+    "description": "Thermodynamic potential for systems at constant temperature and volume",
+    "cluster": "Thermodynamics"
+  },
+  {
+    "id": 65,
+    "title": "Maxwell Relations (\u2202S/\u2202V)_T",
+    "equation": "(\u2202S/\u2202V)_T = (\u2202P/\u2202T)_V",
+    "description": "Thermodynamic identity from exactness of state functions",
+    "cluster": "Thermodynamics"
+  },
+  {
+    "id": 66,
+    "title": "Boltzmann Entropy Formula",
+    "equation": "S = k_B ln \u03a9",
+    "description": "Statistical mechanics relation between entropy and number of microstates",
+    "cluster": "Thermodynamics"
+  },
+  {
+    "id": 67,
+    "title": "Partition Function",
+    "equation": "Z = \u03a3_i exp(-\u03b2E_i)",
+    "description": "Statistical sum determining all thermodynamic properties of equilibrium systems",
+    "cluster": "Thermodynamics"
+  },
+  {
+    "id": 68,
+    "title": "Carnot Efficiency",
+    "equation": "\u03b7 = 1 - T_c/T_h",
+    "description": "Maximum theoretical efficiency of a heat engine operating between two reservoirs",
+    "cluster": "Thermodynamics"
+  },
+  {
+    "id": 69,
+    "title": "Fluctuation Theorem",
+    "equation": "P(\u03c3)/P(-\u03c3) = exp(\u03c3 t)",
+    "description": "Relation between probabilities of forward and reverse entropy production trajectories",
+    "cluster": "Thermodynamics"
+  },
+  {
+    "id": 70,
+    "title": "Jarzynski Equality",
+    "equation": "\u27e8exp(-\u03b2W)\u27e9 = exp(-\u03b2\u0394F)",
+    "description": "Non-equilibrium work relation connecting free energy to path ensemble averages",
+    "cluster": "Thermodynamics"
+  },
+  {
+    "id": 71,
+    "title": "Crooks Fluctuation Theorem",
+    "equation": "P_F(W)/P_R(-W) = exp(\u03b2(W - \u0394F))",
+    "description": "Detailed relation between forward and reverse work distributions",
+    "cluster": "Thermodynamics"
+  },
+  {
+    "id": 72,
+    "title": "Landauer Principle",
+    "equation": "E \u2265 k_B T ln 2",
+    "description": "Minimum energy dissipation from logically irreversible information erasure",
+    "cluster": "Thermodynamics"
+  },
+  {
+    "id": 73,
+    "title": "Degree Centrality",
+    "equation": "C_D(v) = deg(v)/(N-1)",
+    "description": "Normalized degree measure of local node importance in a network",
+    "cluster": "Network Theory"
+  },
+  {
+    "id": 74,
+    "title": "Betweenness Centrality",
+    "equation": "C_B(v) = \u03a3_{s\u2260v\u2260t} \u03c3_{st}(v)/\u03c3_{st}",
+    "description": "Fraction of shortest paths passing through a node, measuring bridging role",
+    "cluster": "Network Theory"
+  },
+  {
+    "id": 75,
+    "title": "Eigenvector Centrality",
+    "equation": "\u03bbx = Ax",
+    "description": "Recursive centrality measure weighted by importance of neighbors",
+    "cluster": "Network Theory"
+  },
+  {
+    "id": 76,
+    "title": "Modularity",
+    "equation": "Q = (1/2m) \u03a3_{ij} [A_{ij} - k_i k_j/(2m)] \u03b4(c_i,c_j)",
+    "description": "Quality function for community detection measuring within-community edge density",
+    "cluster": "Network Theory"
+  },
+  {
+    "id": 77,
+    "title": "Laplacian Matrix",
+    "equation": "L = D - A",
+    "description": "Graph Laplacian encoding connectivity structure, central to spectral graph theory",
+    "cluster": "Network Theory"
+  },
+  {
+    "id": 78,
+    "title": "Algebraic Connectivity",
+    "equation": "\u03bb_2 = min_{x\u22a51} (x^T L x)/(x^T x)",
+    "description": "Second-smallest Laplacian eigenvalue measuring overall network connectivity",
+    "cluster": "Network Theory"
+  },
+  {
+    "id": 79,
+    "title": "Preferential Attachment",
+    "equation": "\u03a0(k_i) = k_i / \u03a3_j k_j",
+    "description": "Probability proportional to existing degree driving scale-free network formation",
+    "cluster": "Network Theory"
+  },
+  {
+    "id": 80,
+    "title": "Small-World Path Length",
+    "equation": "L ~ ln(N)/ln(\u27e8k\u27e9)",
+    "description": "Logarithmic scaling of average shortest path in small-world networks",
+    "cluster": "Network Theory"
+  },
+  {
+    "id": 81,
+    "title": "Assortativity Coefficient",
+    "equation": "r = (\u03a3_e j_ek_e - [\u03a3_e (j_e+k_e)/2]\u00b2)/(\u03a3_e (j_e\u00b2+k_e\u00b2)/2 - [\u03a3_e (j_e+k_e)/2]\u00b2)",
+    "description": "Pearson correlation of degrees at edge endpoints measuring degree mixing",
+    "cluster": "Network Theory"
+  },
+  {
+    "id": 82,
+    "title": "PageRank",
+    "equation": "PR(v) = (1-d)/N + d \u03a3_{u\u2208B_v} PR(u)/L(u)",
+    "description": "Damped random walk centrality measure used in web search ranking",
+    "cluster": "Network Theory"
+  },
+  {
+    "id": 83,
+    "title": "Network Entropy",
+    "equation": "S = -\u03a3_i (k_i/2m) ln(k_i/2m)",
+    "description": "Shannon entropy of degree distribution quantifying network heterogeneity",
+    "cluster": "Network Theory"
+  },
+  {
+    "id": 84,
+    "title": "Percolation Threshold",
+    "equation": "p_c = 1/(\u27e8k\u00b2\u27e9/\u27e8k\u27e9 - 1)",
+    "description": "Critical occupation probability for emergence of giant component",
+    "cluster": "Network Theory"
+  },
+  {
+    "id": 85,
+    "title": "Heisenberg Uncertainty Principle",
+    "equation": "\u0394x \u0394p \u2265 \u210f/2",
+    "description": "Fundamental limit on simultaneous precision of position and momentum measurements",
+    "cluster": "Measurement Theory"
+  },
+  {
+    "id": 86,
+    "title": "Quantum Cram\u00e9r-Rao Bound",
+    "equation": "Var(\u03b8\u0302) \u2265 1/(\u03bd F_Q[\u03c1_\u03b8])",
+    "description": "Ultimate lower bound on variance of any unbiased quantum parameter estimator",
+    "cluster": "Measurement Theory"
+  },
+  {
+    "id": 87,
+    "title": "POVM Measurement Probability",
+    "equation": "P(m) = Tr(\u03c1 M_m)",
+    "description": "Generalized quantum measurement outcome probability with positive operator-valued measure",
+    "cluster": "Measurement Theory"
+  },
+  {
+    "id": 88,
+    "title": "Quantum Fisher Information",
+    "equation": "F_Q[\u03c1_\u03b8] = \u03a3_{i,j} 2/(p_i+p_j) |\u27e8i|\u2202\u03c1_\u03b8/\u2202\u03b8|j\u27e9|\u00b2",
+    "description": "Quantum generalization of Fisher information capturing optimal estimation precision",
+    "cluster": "Measurement Theory"
+  },
+  {
+    "id": 89,
+    "title": "Bell-CHSH Inequality",
+    "equation": "|E(a,b) - E(a,b')| + |E(a',b) + E(a',b')| \u2264 2",
+    "description": "Constraint on local hidden variable theories violated by quantum mechanics",
+    "cluster": "Measurement Theory"
+  },
+  {
+    "id": 90,
+    "title": "Squeezed State Uncertainty",
+    "equation": "\u0394X\u2081 \u0394X\u2082 \u2265 1/4 |\u27e8[X\u2081,X\u2082]\u27e9|",
+    "description": "Generalized uncertainty relation for quadrature operators with squeezing",
+    "cluster": "Measurement Theory"
+  },
+  {
+    "id": 91,
+    "title": "Quantum State Tomography Fidelity",
+    "equation": "F = (Tr\u221a(\u221a\u03c1 \u03c3 \u221a\u03c1))\u00b2",
+    "description": "Uhlmann fidelity measuring closeness between reconstructed and true quantum state",
+    "cluster": "Measurement Theory"
+  },
+  {
+    "id": 92,
+    "title": "Weak Value Amplification",
+    "equation": "A_w = \u27e8\u03c8_f|A|\u03c8_i\u27e9/\u27e8\u03c8_f|\u03c8_i\u27e9",
+    "description": "Aharonov-Albert-Vaidman weak value that can lie outside eigenvalue spectrum",
+    "cluster": "Measurement Theory"
+  },
+  {
+    "id": 93,
+    "title": "Quantum Zeno Rate",
+    "equation": "P_survive = [1 - (\u0394E)\u00b2t\u00b2/N\u00b2]^N \u2192 exp(-\u0394E\u00b2\u03c4)",
+    "description": "Survival probability under frequent measurements approaching unit in limit",
+    "cluster": "Measurement Theory"
+  },
+  {
+    "id": 94,
+    "title": "Kraus Operator Sum",
+    "equation": "\u03b5(\u03c1) = \u03a3_k E_k \u03c1 E_k\u2020",
+    "description": "General description of quantum operations through completely positive maps",
+    "cluster": "Measurement Theory"
+  },
+  {
+    "id": 95,
+    "title": "Projection Postulate",
+    "equation": "\u03c1 \u2192 P_i \u03c1 P_i / Tr(P_i \u03c1)",
+    "description": "State collapse rule upon projective measurement yielding eigenvalue i",
+    "cluster": "Measurement Theory"
+  },
+  {
+    "id": 96,
+    "title": "Naimark Dilation",
+    "equation": "M_m = V\u2020 P_m V",
+    "description": "Embedding general POVM measurement into projective measurement on extended Hilbert space",
+    "cluster": "Measurement Theory"
+  },
+  {
+    "id": 97,
+    "title": "Lorentz Time Dilation",
+    "equation": "\u0394t' = \u03b3 \u0394t = \u0394t / \u221a(1 - v\u00b2/c\u00b2)",
+    "description": "Time interval dilation for moving observer in special relativity",
+    "cluster": "Temporal Dynamics"
+  },
+  {
+    "id": 98,
+    "title": "Gravitational Time Dilation",
+    "equation": "\u0394t_\u221e = \u0394t_r / \u221a(1 - 2GM/(rc\u00b2))",
+    "description": "Clock rate difference in gravitational potential from general relativity",
+    "cluster": "Temporal Dynamics"
+  },
+  {
+    "id": 99,
+    "title": "Schwarzschild Proper Time",
+    "equation": "d\u03c4\u00b2 = (1 - r_s/r) dt\u00b2 - (1 - r_s/r)\u207b\u00b9 dr\u00b2/c\u00b2",
+    "description": "Proper time interval for observer near Schwarzschild black hole",
+    "cluster": "Temporal Dynamics"
+  },
+  {
+    "id": 100,
+    "title": "Autocorrelation Function",
+    "equation": "R(\u03c4) = E[X(t)X(t+\u03c4)]",
+    "description": "Correlation of time series with itself at different time lags",
+    "cluster": "Temporal Dynamics"
+  },
+  {
+    "id": 101,
+    "title": "Power Spectral Density",
+    "equation": "S(\u03c9) = \u222b_{-\u221e}^{\u221e} R(\u03c4) e^{-i\u03c9\u03c4} d\u03c4",
+    "description": "Fourier transform of autocorrelation function, Wiener-Khinchin theorem",
+    "cluster": "Temporal Dynamics"
+  },
+  {
+    "id": 102,
+    "title": "Kolmogorov-Zurbenko Filter",
+    "equation": "KZ(m,k) = \u03a3_{j=-(m-1)}^{m-1} [...] iterated k times",
+    "description": "Iterated moving average filter for temporal signal decomposition",
+    "cluster": "Temporal Dynamics"
+  },
+  {
+    "id": 103,
+    "title": "Time-Reversal Asymmetry",
+    "equation": "\u0394S = S_forward - S_backward > 0",
+    "description": "Entropy production difference between forward and reversed process trajectories",
+    "cluster": "Temporal Dynamics"
+  },
+  {
+    "id": 104,
+    "title": "Causal Autoregressive Model",
+    "equation": "X_t = \u03a3_{i=1}^{p} \u03c6_i X_{t-i} + \u03b5_t",
+    "description": "AR(p) process encoding temporal dependencies in stationary time series",
+    "cluster": "Temporal Dynamics"
+  },
+  {
+    "id": 105,
+    "title": "Granger Causality Spectrum",
+    "equation": "F_{X\u2192Y}(\u03c9) = ln[Sy(\u03c9)/Sy|x(\u03c9)]",
+    "description": "Frequency-resolved measure of predictive causal influence between processes",
+    "cluster": "Temporal Dynamics"
+  },
+  {
+    "id": 106,
+    "title": "Kramers-Kronig Relations",
+    "equation": "Re[\u03c7(\u03c9)] = (1/\u03c0) P \u222b Im[\u03c7(\u03c9')]/(\u03c9' - \u03c9) d\u03c9'",
+    "description": "Dispersion relations connecting real and imaginary parts of response functions",
+    "cluster": "Temporal Dynamics"
+  },
+  {
+    "id": 107,
+    "title": "Relaxation Time Distribution",
+    "equation": "G(\u03c4) = \u03a3_i g_i \u03b4(\u03c4 - \u03c4_i)",
+    "description": "Distribution of exponential relaxation times in complex materials",
+    "cluster": "Temporal Dynamics"
+  },
+  {
+    "id": 108,
+    "title": "Causal Entropy Rate",
+    "equation": "h_\u03bc = lim_{n\u2192\u221e} H(X_n|X_1...X_{n-1})/n",
+    "description": "Entropy rate of a stochastic process capturing temporal information generation",
+    "cluster": "Temporal Dynamics"
+  },
+  {
+    "id": 109,
+    "title": "Yang-Mills Field Strength",
+    "equation": "F^a_{\u03bc\u03bd} = \u2202_\u03bc A^a_\u03bd - \u2202_\u03bd A^a_\u03bc + gf^{abc} A^b_\u03bc A^c_\u03bd",
+    "description": "Non-Abelian field strength tensor for gauge theory with structure constants",
+    "cluster": "Field Theory"
+  },
+  {
+    "id": 110,
+    "title": "Euler-Lagrange Field Equation",
+    "equation": "\u2202L/\u2202\u03c6 - \u2202_\u03bc(\u2202L/\u2202(\u2202_\u03bc\u03c6)) = 0",
+    "description": "Field equation derived from Lagrangian density via variational principle",
+    "cluster": "Field Theory"
+  },
+  {
+    "id": 111,
+    "title": "Klein-Gordon Equation",
+    "equation": "(\u25a1 + m\u00b2)\u03c6 = 0",
+    "description": "Relativistic wave equation for spin-0 particles in quantum field theory",
+    "cluster": "Field Theory"
+  },
+  {
+    "id": 112,
+    "title": "Dirac Equation",
+    "equation": "(i\u03b3^\u03bc \u2202_\u03bc - m)\u03c8 = 0",
+    "description": "Relativistic quantum equation for spin-1/2 fermions",
+    "cluster": "Field Theory"
+  },
+  {
+    "id": 113,
+    "title": "Maxwell Equations (Covariant)",
+    "equation": "\u2202_\u03bc F^{\u03bc\u03bd} = J^\u03bd, \u2202_\u03bc \u1ebc^{\u03bc\u03bd} = 0",
+    "description": "Electromagnetic field equations in covariant tensor notation",
+    "cluster": "Field Theory"
+  },
+  {
+    "id": 114,
+    "title": "Noether Current",
+    "equation": "J^\u03bc = \u2202L/\u2202(\u2202_\u03bc\u03c6) \u03b4\u03c6 - K^\u03bc",
+    "description": "Conserved current associated with continuous symmetry via Noether's theorem",
+    "cluster": "Field Theory"
+  },
+  {
+    "id": 115,
+    "title": "Path Integral",
+    "equation": "Z = \u222b D\u03c6 exp(iS[\u03c6]/\u210f)",
+    "description": "Feynman path integral summing over all field configurations",
+    "cluster": "Field Theory"
+  },
+  {
+    "id": 116,
+    "title": "Wightman Function",
+    "equation": "W(x,y) = \u27e80|\u03c6(x)\u03c6(y)|0\u27e9",
+    "description": "Vacuum expectation value of field operators encoding correlation structure",
+    "cluster": "Field Theory"
+  },
+  {
+    "id": 117,
+    "title": "Effective Action",
+    "equation": "\u0393[\u03c6_cl] = S[\u03c6_cl] + (i\u210f/2) Tr ln[\u03b4\u00b2S/\u03b4\u03c6\u03b4\u03c6]",
+    "description": "Generating functional of 1PI diagrams for quantum effective field theory",
+    "cluster": "Field Theory"
+  },
+  {
+    "id": 118,
+    "title": "Renormalization Group Beta",
+    "equation": "\u03b2(g) = \u03bc dg/d\u03bc",
+    "description": "Running of coupling constant under scale transformation",
+    "cluster": "Field Theory"
+  },
+  {
+    "id": 119,
+    "title": "Ward-Takahashi Identity",
+    "equation": "\u2202_\u03bc \u27e8j^\u03bc(x) \u03c6(y\u2081)...\u03c6(y_n)\u27e9 = \u03a3_i \u03b4(x-y_i) \u27e8\u03c6(y\u2081)...\u03b4\u03c6(y_i)...\u03c6(y_n)\u27e9",
+    "description": "Quantum identity encoding gauge symmetry at correlator level",
+    "cluster": "Field Theory"
+  },
+  {
+    "id": 120,
+    "title": "Higgs Mechanism Mass Term",
+    "equation": "m = g v/\u221a2",
+    "description": "Gauge boson mass generated through spontaneous symmetry breaking",
+    "cluster": "Field Theory"
+  },
+  {
+    "id": 121,
+    "title": "Chern Number",
+    "equation": "C = (1/2\u03c0) \u222b F d\u00b2k",
+    "description": "Topological invariant classifying quantum Hall states via Berry curvature integral",
+    "cluster": "Topological Physics"
+  },
+  {
+    "id": 122,
+    "title": "Berry Connection",
+    "equation": "A_n(R) = i\u27e8n(R)|\u2207_R n(R)\u27e9",
+    "description": "Gauge connection on parameter space arising from adiabatic evolution",
+    "cluster": "Topological Physics"
+  },
+  {
+    "id": 123,
+    "title": "Berry Curvature",
+    "equation": "\u03a9_\u03bc\u03bd = \u2202_\u03bc A_\u03bd - \u2202_\u03bd A_\u03bc",
+    "description": "Curvature of Berry connection, analogous to electromagnetic field strength",
+    "cluster": "Topological Physics"
+  },
+  {
+    "id": 124,
+    "title": "Topological Invariant (Z\u2082)",
+    "equation": "(-1)^\u03bd = \u03a0_i \u03b4_i where \u03b4_i = Pf[w(\u039b_i)]/\u221adet[w(\u039b_i)]",
+    "description": "Fu-Kane parity formula for Z\u2082 topological insulator classification",
+    "cluster": "Topological Physics"
+  },
+  {
+    "id": 125,
+    "title": "Winding Number",
+    "equation": "\u03bd = (1/2\u03c0i) \u222b d\u207fk Tr[g\u207b\u00b9(k) \u2202_k g(k)]",
+    "description": "Homotopy invariant classifying topological defects in ordered media",
+    "cluster": "Topological Physics"
+  },
+  {
+    "id": 126,
+    "title": "Skyrmion Topological Charge",
+    "equation": "Q = (1/4\u03c0) \u222b n \u00b7 (\u2202_x n \u00d7 \u2202_y n) d\u00b2x",
+    "description": "Integer topological charge of skyrmion spin texture in magnetic systems",
+    "cluster": "Topological Physics"
+  },
+  {
+    "id": 127,
+    "title": "First Chern Class",
+    "equation": "c\u2081 = (i/2\u03c0) \u222b Tr(F)",
+    "description": "Characteristic class of complex line bundles over closed manifolds",
+    "cluster": "Topological Physics"
+  },
+  {
+    "id": 128,
+    "title": "Euler Characteristic",
+    "equation": "\u03c7 = V - E + F",
+    "description": "Topological invariant relating vertices, edges, and faces of polyhedra",
+    "cluster": "Topological Physics"
+  },
+  {
+    "id": 129,
+    "title": "Topological Entanglement Entropy",
+    "equation": "\u03b3 = ln D",
+    "description": "Universal subleading correction to area-law entanglement in topologically ordered phases",
+    "cluster": "Topological Physics"
+  },
+  {
+    "id": 130,
+    "title": "Linking Number",
+    "equation": "Lk = (1/4\u03c0) \u222e\u222e (dr\u2081 \u00d7 dr\u2082) \u00b7 (r\u2081 - r\u2082)/|r\u2081 - r\u2082|\u00b3",
+    "description": "Gauss integral measuring topological linking of two closed curves",
+    "cluster": "Topological Physics"
+  },
+  {
+    "id": 131,
+    "title": "Majorana Zero Mode",
+    "equation": "\u03b3 = \u03b3\u2020, {\u03b3_i, \u03b3_j} = 2\u03b4_{ij}",
+    "description": "Self-conjugate quasiparticle excitation at topological defect in p-wave superconductor",
+    "cluster": "Topological Physics"
+  },
+  {
+    "id": 132,
+    "title": "Wilson Loop",
+    "equation": "W(C) = Tr P exp(i\u222e_C A)",
+    "description": "Gauge-invariant observable detecting confinement via area-law behavior",
+    "cluster": "Topological Physics"
+  },
+  {
+    "id": 133,
+    "title": "Kolmogorov Complexity",
+    "equation": "K(x) = min{|p| : U(p) = x}",
+    "description": "Length of shortest program producing output x on universal Turing machine",
+    "cluster": "Complexity Science"
+  },
+  {
+    "id": 134,
+    "title": "Logical Depth",
+    "equation": "D(x) = min{T(p) : |p| \u2248 K(x), U(p) = x}",
+    "description": "Computational time required by shortest program generating x",
+    "cluster": "Complexity Science"
+  },
+  {
+    "id": 135,
+    "title": "Bennett's Logical Depth",
+    "equation": "depth_t(x) = min{t : \u2203p, |p| \u2264 K(x)+c, U(p)=x in t steps}",
+    "description": "Time-bounded version of logical depth measuring organized complexity",
+    "cluster": "Complexity Science"
+  },
+  {
+    "id": 136,
+    "title": "Effective Complexity",
+    "equation": "C_E(X) = K(\u03bc_X)",
+    "description": "Algorithmic information content of the regularities in a dataset",
+    "cluster": "Complexity Science"
+  },
+  {
+    "id": 137,
+    "title": "Sophistication",
+    "equation": "Soph(x) = min_{\u03bc\u2208M} {K(\u03bc) : x is \u03bc-typical}",
+    "description": "Minimum description length of the natural structure class containing x",
+    "cluster": "Complexity Science"
+  },
+  {
+    "id": 138,
+    "title": "Thermodynamic Depth",
+    "equation": "D_th(x) = -log\u2082 P(x|F)",
+    "description": "Lloyd-Pagels measure of how many evolutionary steps produced current state",
+    "cluster": "Complexity Science"
+  },
+  {
+    "id": 139,
+    "title": "Statistical Complexity (CSE)",
+    "equation": "C_\u03bc = H[E] - \u03a3_x p(x) H[p(\u03c3|X=x)]",
+    "description": "Computational mechanics complexity capturing causal structure of process",
+    "cluster": "Complexity Science"
+  },
+  {
+    "id": 140,
+    "title": "Fractal Dimension (Box-Counting)",
+    "equation": "D_B = lim_{\u03b5\u21920} ln N(\u03b5)/ln(1/\u03b5)",
+    "description": "Power-law scaling of boxes needed to cover fractal set at resolution \u03b5",
+    "cluster": "Complexity Science"
+  },
+  {
+    "id": 141,
+    "title": "Hausdorff Dimension",
+    "equation": "dim_H(S) = inf{d \u2265 0 : H^d(S) = 0}",
+    "description": "Rigorous dimension definition via d-dimensional Hausdorff measure",
+    "cluster": "Complexity Science"
+  },
+  {
+    "id": 142,
+    "title": "Lempel-Ziv Complexity",
+    "equation": "c(n) = number of distinct phrases in LZ parsing of length-n sequence",
+    "description": "Compression-based complexity measure for finite sequences",
+    "cluster": "Complexity Science"
+  },
+  {
+    "id": 143,
+    "title": "Causal State Entropy",
+    "equation": "H_S = -\u03a3_s P(S=s) log\u2082 P(S=s)",
+    "description": "Entropy of causal state distribution in computational mechanics framework",
+    "cluster": "Complexity Science"
+  },
+  {
+    "id": 144,
+    "title": "Multi-Information",
+    "equation": "I(X\u2081;...;X_n) = \u03a3_i H(X_i) - H(X\u2081,...,X_n)",
+    "description": "Total correlation measuring redundancy among random variables",
+    "cluster": "Complexity Science"
+  },
+  {
+    "id": 145,
+    "title": "G\u00f6del Incompleteness (First Theorem)",
+    "equation": "Con(T) \u2192 \u00acProv_T(\u231cG\u231d) where G \u2194 \u00acProv_T(\u231cG\u231d)",
+    "description": "Any consistent formal system containing arithmetic has unprovable true statements",
+    "cluster": "Axiomatic Foundations"
+  },
+  {
+    "id": 146,
+    "title": "G\u00f6del Second Incompleteness",
+    "equation": "Con(T) \u2192 \u00acProv_T(\u231cCon(T)\u231d)",
+    "description": "Consistent formal systems cannot prove their own consistency",
+    "cluster": "Axiomatic Foundations"
+  },
+  {
+    "id": 147,
+    "title": "Cantor Diagonalization",
+    "equation": "|P(S)| > |S| for any set S",
+    "description": "Power set has strictly larger cardinality than original set",
+    "cluster": "Axiomatic Foundations"
+  },
+  {
+    "id": 148,
+    "title": "Zorn's Lemma Equivalence",
+    "equation": "AC \u2194 ZL \u2194 WOP \u2194 Tychonoff",
+    "description": "Equivalence of axiom of choice, Zorn's lemma, well-ordering principle",
+    "cluster": "Axiomatic Foundations"
+  },
+  {
+    "id": 149,
+    "title": "L\u00f6wenheim-Skolem Theorem",
+    "equation": "If T has model of cardinality \u03ba then T has countable model",
+    "description": "First-order theories cannot uniquely characterize infinite structures",
+    "cluster": "Axiomatic Foundations"
+  },
+  {
+    "id": 150,
+    "title": "Compactness Theorem",
+    "equation": "T has model iff every finite subset of T has model",
+    "description": "Fundamental result connecting local and global satisfiability",
+    "cluster": "Axiomatic Foundations"
+  },
+  {
+    "id": 151,
+    "title": "Completeness Theorem",
+    "equation": "T \u22a2 \u03c6 \u2194 T \u22a8 \u03c6",
+    "description": "G\u00f6del's completeness theorem: provability equals semantic entailment",
+    "cluster": "Axiomatic Foundations"
+  },
+  {
+    "id": 152,
+    "title": "Turing Halting Undecidability",
+    "equation": "K\u2080 = {e : \u03c6_e(e)\u2193} is not recursive",
+    "description": "Halting problem is undecidable by any Turing machine",
+    "cluster": "Axiomatic Foundations"
+  },
+  {
+    "id": 153,
+    "title": "Curry-Howard Correspondence",
+    "equation": "\u0393 \u22a2 \u03c0 : A \u2194 \u0393 \u22a2 A",
+    "description": "Isomorphism between proof theory and type theory: proofs as programs",
+    "cluster": "Axiomatic Foundations"
+  },
+  {
+    "id": 154,
+    "title": "Categorical Adjunction",
+    "equation": "Hom(F(A), B) \u2245 Hom(A, G(B))",
+    "description": "Natural bijection between morphism sets defining adjoint functors",
+    "cluster": "Axiomatic Foundations"
+  },
+  {
+    "id": 155,
+    "title": "Yoneda Lemma",
+    "equation": "Nat(Hom(A,-), F) \u2245 F(A)",
+    "description": "Embedding of any category into its category of presheaves",
+    "cluster": "Axiomatic Foundations"
+  },
+  {
+    "id": 156,
+    "title": "Gentzen Sequent Calculus Cut Elimination",
+    "equation": "If \u0393 \u22a2_c \u0394 then \u0393 \u22a2_nc \u0394",
+    "description": "Cut rule is admissible in sequent calculus, ensuring proof normalization",
+    "cluster": "Axiomatic Foundations"
+  },
+  {
+    "id": 157,
+    "title": "Fixed Point Theorem (Recursion)",
+    "equation": "\u2200e \u2203n [\u03c6_e(n) = \u03c6_n(n)]",
+    "description": "Kleene's recursion theorem: every computable function has a self-referential fixed point",
+    "cluster": "Axiomatic Foundations"
+  },
+  {
+    "id": 158,
+    "title": "Ginzburg-Landau Free Energy",
+    "equation": "F = \u222b [a|\u03c8|\u00b2 + b|\u03c8|\u2074 + \u03ba|\u2207\u03c8|\u00b2] dV",
+    "description": "Phenomenological free energy for superconducting/magnetic phase transitions",
+    "cluster": "Emergent Phenomena"
+  },
+  {
+    "id": 159,
+    "title": "Order Parameter Scaling",
+    "equation": "M ~ (T_c - T)^\u03b2 for T < T_c",
+    "description": "Power-law scaling of order parameter near critical point",
+    "cluster": "Emergent Phenomena"
+  },
+  {
+    "id": 160,
+    "title": "Correlation Length Divergence",
+    "equation": "\u03be ~ |T - T_c|^{-\u03bd}",
+    "description": "Diverging correlation length at critical point with critical exponent \u03bd",
+    "cluster": "Emergent Phenomena"
+  },
+  {
+    "id": 161,
+    "title": "Susceptibility Divergence",
+    "equation": "\u03c7 ~ |T - T_c|^{-\u03b3}",
+    "description": "Power-law divergence of response function at continuous phase transition",
+    "cluster": "Emergent Phenomena"
+  },
+  {
+    "id": 162,
+    "title": "Landau Theory Expansion",
+    "equation": "F = F\u2080 + a(T-T_c)\u03b7\u00b2 + b\u03b7\u2074 + ...",
+    "description": "Free energy expansion in order parameter near second-order transition",
+    "cluster": "Emergent Phenomena"
+  },
+  {
+    "id": 163,
+    "title": "Spinodal Decomposition Rate",
+    "equation": "R(q) = -Mq\u00b2 [r + \u03baq\u00b2 + ...]",
+    "description": "Amplification rate of composition fluctuations during spinodal decomposition",
+    "cluster": "Emergent Phenomena"
+  },
+  {
+    "id": 164,
+    "title": "Cahn-Hilliard Equation",
+    "equation": "\u2202c/\u2202t = \u2207\u00b7[M\u2207(\u2202f/\u2202c - \u03ba\u2207\u00b2c)]",
+    "description": "Conserved order parameter dynamics for phase separation in binary mixtures",
+    "cluster": "Emergent Phenomena"
+  },
+  {
+    "id": 165,
+    "title": "Amari Free Energy Dynamics",
+    "equation": "d\u03be/dt = -\u2202F/\u2202\u03be + noise",
+    "description": "Gradient descent on free energy landscape in neural field dynamics",
+    "cluster": "Emergent Phenomena"
+  },
+  {
+    "id": 166,
+    "title": "Synergetic Order Parameter",
+    "equation": "d\u03be/dt = \u03bb\u03be - \u03b2\u03be\u00b3 + F(t)",
+    "description": "Haken's slaving principle: order parameter dynamics near instability point",
+    "cluster": "Emergent Phenomena"
+  },
+  {
+    "id": 167,
+    "title": "Self-Organized Criticality",
+    "equation": "P(s) ~ s^{-\u03c4} for avalanche size s",
+    "description": "Power-law avalanche statistics at criticality without parameter tuning",
+    "cluster": "Emergent Phenomena"
+  },
+  {
+    "id": 168,
+    "title": "Sandpile Toppling Rule",
+    "equation": "z_i \u2265 z_c \u2192 z_i \u2192 z_i - 4, z_{nn} \u2192 z_{nn} + 1",
+    "description": "Abelian sandpile local toppling rule producing self-organized criticality",
+    "cluster": "Emergent Phenomena"
+  },
+  {
+    "id": 169,
+    "title": "Reaction-Diffusion Pattern",
+    "equation": "\u2202u/\u2202t = D_u\u2207\u00b2u + f(u,v), \u2202v/\u2202t = D_v\u2207\u00b2v + g(u,v)",
+    "description": "Turing mechanism for spontaneous pattern formation via activator-inhibitor dynamics",
+    "cluster": "Emergent Phenomena"
+  },
+  {
+    "id": 170,
+    "title": "Macro-Micro Causal Decoupling",
+    "equation": "\u03a6_macro = I(X_macro_t+1; X_macro_t) - \u27e8I(X_i,t+1; X_i,t)\u27e9",
+    "description": "Causal emergence measure comparing macro to average micro causal structure",
+    "cluster": "Emergent Phenomena"
+  },
+  {
+    "id": 171,
+    "title": "Noether's First Theorem",
+    "equation": "\u2202_\u03bc J^\u03bc = 0 for continuous symmetry \u03b4\u03c6",
+    "description": "Every continuous global symmetry implies a conserved current",
+    "cluster": "Symmetry & Conservation"
+  },
+  {
+    "id": 172,
+    "title": "Energy-Momentum Tensor Conservation",
+    "equation": "\u2202_\u03bc T^{\u03bc\u03bd} = 0",
+    "description": "Conservation of energy and momentum from spacetime translation invariance",
+    "cluster": "Symmetry & Conservation"
+  },
+  {
+    "id": 173,
+    "title": "Angular Momentum Conservation",
+    "equation": "\u2202_\u03bc M^{\u03bb\u03bc\u03bd} = T^{\u03bd\u03bb} - T^{\u03bb\u03bd}",
+    "description": "Conservation of angular momentum from Lorentz rotation symmetry",
+    "cluster": "Symmetry & Conservation"
+  },
+  {
+    "id": 174,
+    "title": "Charge Conservation",
+    "equation": "\u2202_\u03bc j^\u03bc = 0",
+    "description": "Electric charge conservation from U(1) gauge symmetry",
+    "cluster": "Symmetry & Conservation"
+  },
+  {
+    "id": 175,
+    "title": "Weyl Invariance Condition",
+    "equation": "T^\u03bc_\u03bc = 0",
+    "description": "Traceless stress-energy tensor required for conformal invariance",
+    "cluster": "Symmetry & Conservation"
+  },
+  {
+    "id": 176,
+    "title": "Parity Transformation",
+    "equation": "P: (t,x) \u2192 (t,-x), \u03c8(t,x) \u2192 \u03b3\u2070\u03c8(t,-x)",
+    "description": "Spatial reflection symmetry and its action on quantum fields",
+    "cluster": "Symmetry & Conservation"
+  },
+  {
+    "id": 177,
+    "title": "Time Reversal (Antiunitary)",
+    "equation": "T: \u03c8(t,x) \u2192 T \u03c8(-t,x), T i T\u207b\u00b9 = -i",
+    "description": "Antiunitary time reversal operation on quantum states",
+    "cluster": "Symmetry & Conservation"
+  },
+  {
+    "id": 178,
+    "title": "CP Violation Parameter",
+    "equation": "\u03b5' = (A_{K_L\u2192\u03c0\u03c0}(I=2))/(A_{K_S\u2192\u03c0\u03c0}(I=0))",
+    "description": "Direct CP violation parameter in kaon decay system",
+    "cluster": "Symmetry & Conservation"
+  },
+  {
+    "id": 179,
+    "title": "Goldstone Boson Dispersion",
+    "equation": "\u03c9\u00b2 = c_s\u00b2 k\u00b2",
+    "description": "Linear dispersion relation of massless Goldstone bosons from spontaneous symmetry breaking",
+    "cluster": "Symmetry & Conservation"
+  },
+  {
+    "id": 180,
+    "title": "Ward Identity (QED)",
+    "equation": "q_\u03bc M^\u03bc = e [S\u2081(p+q) - S\u2081(p)]",
+    "description": "Electromagnetic current conservation at vertex level in QED",
+    "cluster": "Symmetry & Conservation"
+  },
+  {
+    "id": 181,
+    "title": "Chiral Symmetry Breaking",
+    "equation": "\u27e8\u03c8\u0304\u03c8\u27e9 \u2260 0 despite m\u21920",
+    "description": "Nonzero quark condensate signals spontaneous chiral symmetry breaking in QCD",
+    "cluster": "Symmetry & Conservation"
+  },
+  {
+    "id": 182,
+    "title": "Supersymmetry Algebra",
+    "equation": "{Q_\u03b1, Q\u0304_{\u03b2\u0307}} = 2\u03c3^\u03bc_{\u03b1\u03b2\u0307} P_\u03bc",
+    "description": "Graded Lie algebra relating fermionic and bosonic generators",
+    "cluster": "Symmetry & Conservation"
+  },
+  {
+    "id": 183,
+    "title": "Gauge Covariant Derivative",
+    "equation": "D_\u03bc = \u2202_\u03bc - ig A_\u03bc^a T^a",
+    "description": "Covariant derivative ensuring local gauge invariance of matter fields",
+    "cluster": "Symmetry & Conservation"
+  }
+]

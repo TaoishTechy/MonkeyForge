@@ -1,0 +1,22 @@
+{
+  "app_name": "MonkeyForge DEMO-Lite",
+  "version": "0.5.0",
+  "sophia_threshold": 0.618033988749,
+  "diversity_threshold": 0.72,
+  "hybrid_chance": 0.3,
+  "history_window": 20,
+  "curvature_k": 0.8,
+  "output_dir": "output",
+  "upload_dir": "uploads",
+  "max_upload_size_mb": 10,
+  "rate_limit_per_minute": 60,
+  "deepseek_api_key": "",
+  "deepseek_base_url": "https://api.deepseek.com/v1",
+  "deepseek_model": "deepseek-chat",
+  "deepseek_max_tokens": 1024,
+  "ledger_chain_name": "MonkeyForge-Ledger",
+  "default_axiom_license": "CC-BY-4.0",
+  "max_axioms_per_batch": 24,
+  "session_timeout_minutes": 480,
+  "audit_enabled": true
+}
